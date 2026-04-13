@@ -1,14 +1,438 @@
 {
-    "name": {
-        "ar": "\u0632\u064a\u0627\u062f\u0629 \u0627\u0644\u0645\u0628\u064a\u0639\u0627\u062a \u0648 \u0627\u0644\u0639\u0631\u0636 \u0627\u0644\u0627\u062d\u062a\u0631\u0627\u0641\u064a",
-        "en": "Increase sales and professional presentation"
+  "name": {
+    "ar": "زيادة المبيعات و العرض الاحترافي",
+    "en": "Increase sales and professional presentation"
+  },
+  "description": {
+    "ar": "",
+    "en": ""
+  },
+  "author_email": "sajispprt@gmail.com",
+  "support_url": "",
+  "repository": "https://github.com/Ashaheen892/tw-increase-sales-and-professional-presentation",
+  "components": [
+    {
+      "key": "b1318dc1-92ea-4015-a004-e1d712c00896",
+      "name": "hero-video",
+      "title": "فيديو عرضى",
+      "icon": "sicon-camcorder",
+      "image": "https://cdn.imgchest.com/files/9bb41e5c0cb1.jpg",
+      "preview_image": "https://cdn.imgchest.com/files/9bb41e5c0cb1.jpg",
+      "fields": [
+        {
+          "type": "static",
+          "format": "description",
+          "id": "salla-pro-hero-video",
+          "value": "<div><a href='https://mtjr.at/SfoXlntisG' target='_blank'><div class='flex flex-row overflow-x-hidden p-2 relative rounded items-center' style='gap: 15px; border: dashed; margin-top: 30px; margin-bottom: 30px;'><img src='https://cdn.salla.sa/apgtHqm6EDSvTpQ4m3xmSUhv9pyvI2J4Z8iqaF1E.png' style='width: 25%;'> <div class='flex flex-col p-2' style='color:#21636d;'><strong class='text-lg mt-1 mb-3'>احصل على خصم 30%</strong><strong class='mt-1 mb-3 text-sm'> اضغط للتجديد السنوي لباقات سلة برو او بلس بكود خصم ( F-ZJYWQ1TF ) </strong></div></div></a></div>"
+        },
+        {
+          "type": "static",
+          "format": "title",
+          "id": "top-page-title-hero-video",
+          "value": "<div class='rounded-lg' style='background-color: #21636d; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'>المسافة الخارجية للعنصر من الأعلى والأسفل</h6> </div>",
+          "key": "813ad6f2-1538-4a93-9b0d-911ff7423023"
+        },
+        {
+          "id": "hero_video_higher_distance",
+          "class": "rounded-lg text-primary border hover:bg-gray-50 p-2",
+          "key": "2dfc5cbf-5644-436f-ae7a-32a2c76e0449",
+          "type": "number",
+          "format": "units",
+          "label": "اللاب توب والديسك توب",
+          "description": null,
+          "labelHTML": null,
+          "placeholder": "0",
+          "icon": "sicon-percentage",
+          "value": 40,
+          "required": false,
+          "unit": "px",
+          "minimum": 0,
+          "maximum": "250"
+        },
+        {
+          "id": "hero_video_distance_mob",
+          "class": "rounded-lg text-primary border hover:bg-gray-50 p-2 ",
+          "key": "df626d69-77ff-4015-be1b-194682b2856b",
+          "type": "number",
+          "format": "units",
+          "label": "الجوال",
+          "description": null,
+          "labelHTML": null,
+          "placeholder": "0",
+          "icon": "sicon-percentage",
+          "value": 20,
+          "required": false,
+          "unit": "px",
+          "minimum": 0,
+          "maximum": "50"
+        },
+        {
+          "type": "static",
+          "format": "title",
+          "id": "top-page-title-82hero_video",
+          "value": "<div class='rounded-lg' style='background-color: #21636d; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'>تنسيق المحتوي </h6> </div>",
+          "key": "4c6dadd3-663f-49e7-b32d-3f6fa09d61cd"
+        },
+        {
+          "id": "hero_video_view_mob",
+          "key": "f83f0eec-d000-4fc4-946e-2765ca60b7bf",
+          "type": "items",
+          "format": "radio-list",
+          "label": "اختر طريقة عرض الفيديو في الجوال",
+          "description": null,
+          "labelHTML": null,
+          "icon": "sicon-list",
+          "selected": [
+            {
+              "label": "مستطيل بالطول 3:4",
+              "value": "hero_video_rectangle",
+              "key": "d5cd790c-da8e-416b-b466-c835433714f3"
+            }
+          ],
+          "options": [
+            {
+              "label": "مستطيل بالطول 3:4",
+              "value": "hero_video_rectangle",
+              "key": "d5cd790c-da8e-416b-b466-c835433714f3"
+            },
+            {
+              "label": "مستطيل بالطول 9:16",
+              "value": "hero_video_rectangle_tiktok",
+              "key": "fc707acd-a51c-4cc6-8e0f-fde27f2ef0d6"
+            },
+            {
+              "label": "مستطيل بالعرض",
+              "value": "hero_video_rectangle_video",
+              "key": "d602c8cc-c9d6-4791-b0cb-60fcb41930e7"
+            }
+          ],
+          "source": "Manual",
+          "required": false,
+          "class": "rounded-lg text-primary border hover:bg-gray-50 p-4"
+        },
+        {
+          "id": "hero_video_url",
+          "key": "de54f8cd-ab1d-4425-af6f-6bbf4cc1756d",
+          "class": "rounded-lg text-primary border hover:bg-gray-50 p-4",
+          "type": "string",
+          "format": "url",
+          "inputType": "url",
+          "label": "رابط الفيديو",
+          "description": "روابط اليوتيوب وقوقل درايف وفيميو وغيرها من المنصات غير مدعومة, يجب ارفاق رابط مباشر للفيديو, ",
+          "labelHTML": "يمكنك استخدام خدمة مثل <a style='color:blue;padding: 10px 0;display: block;font-size: 14px;' href='https://imgchest.com' target='_blank' style='display: block;color: #2c34ff;padding: 5px;font-size: 14px;'>imgchest </a>",
+          "placeholder": "e.g. https://salla.sa",
+          "icon": "sicon-link",
+          "value": "https://cdn.imgchest.com/files/739cxgj6j67.mp4",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 500
+        },
+        {
+          "id": "hero_video_overlay",
+          "class": "rounded-lg text-primary border hover:bg-gray-50 p-4",
+          "key": "e2b64d31-c08f-4eeb-8e62-80dc79a4f97c",
+          "type": "number",
+          "format": "slider",
+          "inputType": "range",
+          "label": "اختر درجة شفافية الون الظل على الخلفية",
+          "description": "درجة الشفافية من 1 إلى 9 ، ( 1 يعني شفاف جداً )، ( 9 معتم جداً )",
+          "labelHTML": null,
+          "icon": "sicon-pin",
+          "value": "6",
+          "required": false,
+          "step": "1",
+          "minimum": "1",
+          "maximum": "9"
+        },
+        {
+          "id": "hero_video_overlay_color",
+          "class": "rounded-lg text-primary border hover:bg-gray-50 p-4",
+          "key": "04828f72-ab08-4f46-bff3-db2d64bd9e8b",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "اختر لون الـظـل علي الخلفية",
+          "description": "يظهر الظل فوق الخلفية لتوضيح المحتوي",
+          "labelHTML": null,
+          "icon": "sicon-format-fill",
+          "value": "#000000",
+          "required": false
+        },
+        {
+          "id": "hero_video_title",
+          "key": "5239a89f-5e0e-4ad2-bc75-a996b6c34d89",
+          "class": "rounded-lg text-primary border hover:bg-gray-50 p-4",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان الرئيسي",
+          "description": null,
+          "labelHTML": null,
+          "placeholder": "ادخل العنوان الرئيسي ...",
+          "icon": "sicon-format-text-alt",
+          "value": "مرحبًا بك في متجرنا – حيث تلتقي الجودة مع الذوق الرفيع!",
+          "multilanguage": true,
+          "required": false,
+          "minLength": 0,
+          "maxLength": "100"
+        },
+        {
+          "id": "hero_video_text",
+          "key": "beda21a2-5f32-4f13-bc0e-9a87a57fbf94",
+          "class": "rounded-lg text-primary border hover:bg-gray-50 p-4",
+          "type": "string",
+          "format": "textarea",
+          "label": "العوان الفرعي",
+          "description": null,
+          "labelHTML": null,
+          "placeholder": "ادخل العوان الفرعي ....",
+          "icon": "sicon-typography",
+          "value": "نحن متجر متخصص في تقديم منتجات مختارة بعناية، تجمع بين الأصالة والتميز، لتلبية احتياجاتك بأعلى جودة وأفضل الأسعار.",
+          "multilanguage": true,
+          "required": false,
+          "minLength": 0,
+          "maxLength": 500
+        },
+        {
+          "id": "hero_video_btnText",
+          "class": "rounded-lg text-primary border hover:bg-gray-50 p-4",
+          "type": "string",
+          "format": "text",
+          "label": "نص الزر",
+          "description": "لإخفاء الزر اترك الحقل فارغاً",
+          "labelHTML": null,
+          "placeholder": null,
+          "icon": "sicon-format-text-alt",
+          "value": "اكتشف المزيد",
+          "multilanguage": true,
+          "required": false,
+          "minLength": 0,
+          "maxLength": 30,
+          "key": "0df1c04b-e700-47cf-b34e-c1eea9b50184"
+        },
+        {
+          "type": "items",
+          "icon": "sicon-link",
+          "class": "rounded-lg text-primary border hover:bg-gray-50 p-4",
+          "label": "الرابط",
+          "id": "hero_video_btn_url",
+          "value": null,
+          "description": null,
+          "required": false,
+          "format": "variable-list",
+          "searchable": true,
+          "source": "offers_link",
+          "sources": [
+            {
+              "label": "منتج",
+              "key": "products",
+              "value": "products"
+            },
+            {
+              "label": "تصنيف",
+              "key": "categories",
+              "value": "categories"
+            },
+            {
+              "label": "ماركة تجارية",
+              "key": "brands",
+              "value": "brands"
+            },
+            {
+              "label": "صفحة تعريفية",
+              "key": "pages",
+              "value": "pages"
+            },
+            {
+              "label": "مقالة",
+              "key": "blog_articles",
+              "value": "blog_articles"
+            },
+            {
+              "label": "تصنيف ضمن المدونة",
+              "key": "blog_categories",
+              "value": "blog_categories"
+            },
+            {
+              "label": "التخفيضات",
+              "key": "offers_link",
+              "value": "offers_link"
+            },
+            {
+              "label": "الماركات التجارية",
+              "key": "brands_link",
+              "value": "brands_link"
+            },
+            {
+              "label": "المدونة",
+              "key": "blog_link",
+              "value": "blog_link"
+            },
+            {
+              "label": "رابط خارجي",
+              "key": "custom",
+              "value": "custom"
+            }
+          ],
+          "key": "81e875ad-5159-491d-8257-4d68ffd30e76"
+        },
+        {
+          "id": "hero_video_textColor",
+          "class": "rounded-lg text-primary border hover:bg-gray-50 p-4",
+          "key": "83509be1-736a-4efd-a2a5-19b399f20cf1",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "اختر لون نص الزر",
+          "description": null,
+          "labelHTML": null,
+          "icon": "sicon-format-fill",
+          "value": "#06343c",
+          "required": false
+        },
+        {
+          "id": "hero_video_textBgColor",
+          "class": "rounded-lg text-primary border hover:bg-gray-50 p-4",
+          "key": "833d1d21-415d-4509-b05b-e9de58533ab2",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "اختر خلفية الزر",
+          "description": null,
+          "labelHTML": null,
+          "icon": "sicon-format-fill",
+          "value": "#fcfcfc",
+          "required": false
+        }
+      ]
     },
-    "description": {
-        "ar": "",
-        "en": ""
-    },
-    "author_email": "sajispprt@gmail.com",
-    "support_url": "",
-    "repository": "https://github.com/Ashaheen892/tw-increase-sales-and-professional-presentation",
-    "components": []
+    {
+      "key": "1acb876b-2215-4f14-a2ff-c17d0625f1f3",
+      "title": "الفروع على خرائط قوقل",
+      "icon": "sicon-earth",
+      "name": "our-branches",
+      "image": "https://cdn.imgchest.com/files/46acqge3jz7.webp",
+      "preview_image": "https://cdn.imgchest.com/files/46acqge3jz7.webp",
+      "fields": [
+        {
+          "type": "static",
+          "format": "description",
+          "id": "grid-slider-12",
+          "value": "<div class='rounded-lg' style='background-color: #21636d; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px; flex-direction: column; gap: 15px;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'> معاينة العنصر</h6><img src='https://cdn.imgchest.com/files/46acqge3jz7.webp'></div>",
+          "key": "caa64993-c30c-489b-bfc9-aad26ddd683b"
+        },
+        {
+          "type": "static",
+          "format": "description",
+          "id": "salla-pro-glopal",
+          "value": "<div><a href='https://mtjr.at/SfoXlntisG' target='_blank'><div class='flex flex-row overflow-x-hidden p-2 relative rounded items-center' style='gap: 15px; border: dashed; margin-top: 30px; margin-bottom: 30px;'><img src='https://cdn.salla.sa/apgtHqm6EDSvTpQ4m3xmSUhv9pyvI2J4Z8iqaF1E.png' style='width: 25%;'> <div class='flex flex-col p-2' style='color:#21636d;'><strong class='text-lg mt-1 mb-3'>احصل على خصم 30%</strong><strong class='mt-1 mb-3 text-sm'> اضغط للتجديد السنوي لباقات سلة برو او بلس بكود خصم ( F-ZJYWQ1TF ) </strong></div></div></a></div>"
+        },
+        {
+          "type": "string",
+          "icon": "sicon-format-text-alt",
+          "label": "العنوان الرئيسي",
+          "class": "rounded-lg text-primary border hover:bg-gray-50 p-4",
+          "multilanguage": true,
+          "id": "title",
+          "value": null,
+          "required": false,
+          "format": "text",
+          "description": null,
+          "placeholder": "أدخل العنوان هنا...",
+          "minLength": 0,
+          "maxLength": 50,
+          "key": "a678360e-8e94-4bab-921f-11de59926935"
+        },
+        {
+          "id": "subtitle",
+          "key": "04630318-5df8-476d-afd9-e759e0dc7c15",
+          "class": "rounded-lg text-primary border hover:bg-gray-50 p-4",
+          "type": "string",
+          "format": "textarea",
+          "label": "العنوان فرعي",
+          "description": null,
+          "labelHTML": null,
+          "placeholder": "أدخل العنوان الفرعي هنا...",
+          "icon": "sicon-typography",
+          "value": null,
+          "multilanguage": true,
+          "required": false,
+          "minLength": 0,
+          "maxLength": 300
+        },
+        {
+          "id": "branches",
+          "key": "a8e35a2a-6626-4310-8ca2-15ae959d3329",
+          "type": "collection",
+          "format": "collection",
+          "label": null,
+          "description": null,
+          "labelHTML": null,
+          "item_label": null,
+          "icon": "sicon-list-add",
+          "fields": [
+            {
+              "id": "branches.branch_name",
+              "key": "76c8a3e0-e4b9-4fb8-9db3-8c0ad9d69844",
+              "type": "string",
+              "format": "text",
+              "label": "اسم الفرع",
+              "description": null,
+              "labelHTML": null,
+              "placeholder": "ادخل اسم الفرع .....",
+              "icon": "sicon-format-text-alt",
+              "value": null,
+              "multilanguage": true,
+              "required": true,
+              "minLength": 0,
+              "maxLength": "40"
+            },
+            {
+              "id": "branches.line",
+              "key": "7a381cb3-bc41-4811-ae0c-35f6dcfe7ce2",
+              "type": "static",
+              "format": "line",
+              "label": "Line",
+              "icon": "sicon-minus",
+              "defaulted": true
+            },
+            {
+              "type": "string",
+              "icon": "sicon-format-text-alt",
+              "label": "رابط الخريطة",
+              "id": "branches.map_code_url",
+              "value": null,
+              "required": true,
+              "format": "text",
+              "description": "ابحث عن المكان في خريطة جوجل، ثم قم بالضغط على مشاركة، ثم اضغط على تضمين خريطة، ثم انسخ قيمة وألصق كود التضمين هنا",
+              "placeholder": "اضف رابط الخريطة هنا..",
+              "key": "0b9bb73b-8432-4ad5-9422-a557726d829c"
+            },
+            {
+              "type": "static",
+              "format": "description",
+              "id": "branches.static-desc3",
+              "value": "<p >لن تظهر الخريطة في حالة وجود خطأ بالرابط</p>",
+              "key": "da1a940c-ef3a-4adc-ac84-1f10846398f8"
+            },
+            {
+              "type": "boolean",
+              "icon": "sicon-toggle-off",
+              "label": "عرض الخريطة في وضع الوان الأبيض والأسود Gray Mode",
+              "description": null,
+              "id": "branches.map__gray",
+              "format": "switch",
+              "required": false,
+              "value": false,
+              "selected": false,
+              "key": "556d23db-5018-4183-9de4-462e17cbc539"
+            }
+          ],
+          "value": [],
+          "required": false,
+          "minLength": 1,
+          "maxLength": 30
+        }
+      ]
+    }
+  ]
 }
