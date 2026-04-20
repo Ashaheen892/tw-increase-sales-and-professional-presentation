@@ -25,6 +25,7 @@ export default class OurBranches extends LitElement {
   }
 
   static styles = css`
+  
     :host {
       display: block;
     }
@@ -32,7 +33,6 @@ export default class OurBranches extends LitElement {
     .wrapper {
       margin: 40px 0;
     }
-
     .title {
       text-align: center;
       font-size: 24px;
@@ -90,7 +90,7 @@ export default class OurBranches extends LitElement {
     const branches = this.branches;
 
     return html`
-      <div class="wrapper">
+      <div class="wrapper container">
         <!-- title -->
         ${this.config?.title ? html`<div class="title">${this.config.title}</div>` : ''}
 
