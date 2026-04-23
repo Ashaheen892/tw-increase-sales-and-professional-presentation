@@ -5,15 +5,12 @@ export default class BannerDoubleSaji extends LitElement {
   @property({ type: Object })
   config?: any;
 
-  // السماح لـ Tailwind CSS بالعمل داخل المكون
+  // مهم مع سلة (بدون Shadow DOM)
   createRenderRoot() {
     return this;
   }
 
-  /**
-   * دالة لتنظيف مفاتيح البيانات داخل العناصر (Collection Items)
-   * للتخلص من الـ prefixes المحتملة
-   */
+  // تنظيف المفاتيح
   private normalizeItem(item: any) {
     const obj: any = {};
     if (!item) return obj;
@@ -27,32 +24,72 @@ export default class BannerDoubleSaji extends LitElement {
   }
 
   render() {
-    // الوصول إلى المصفوفة بناءً على ID الحقل في الـ JSON
-    // استخدمت الاسم banners_double حسب تعريف الـ fields في طلبك
     const banners = this.config?.banners_double || [];
 
     if (!banners.length) return html``;
 
     return html`
-      <section class="double-banner s-block my-8 lg:my-16">
-        <div class="container">
+      <style>
+        .double-banner {
+          margin: 32px 0;
+        }
+
+        @media (min-width: 1024px) {
+          .double-banner {
+            margin: 64px 0;
+          }
+        }
+
+        .double-banner__container {
+          max-width: 1440px;
+          margin: 0 auto;
+          padding: 0 16px;
+        }
+
+        /* Layout columns (Pinterest style) */
+        .double-banner__grid {
+          column-count: 2;
+          column-gap: 16px;
+        }
+
+        @media (min-width: 1024px) {
+          .double-banner__grid {
+            column-gap: 15px;
+          }
+        }
+
+        .double-banner__item {
+          display: inline-flex;
+          width: 100%;
+          margin-bottom: 15px;
+          overflow: hidden;
+          break-inside: avoid;
+          text-decoration: none;
+        }
+
+        .double-banner__image {
+          width: 100%;
+          display: block;
+          height: auto;
+        }
+      </style>
+
+      <section class="double-banner">
+        <div class="double-banner__container">
           
-          <div class="double-banner-data gap-4" style="columns: 2;">
-            
+          <div class="double-banner__grid">
+
             ${banners.map((rawItem: any) => {
               const item = this.normalizeItem(rawItem);
 
-              // استخراج الصورة والرابط
               const image = item.banners_double_image;
               const url = item.banners_double_url?.value || '#';
-
               return html`
-                <a href="${url}" class="block overflow-hidden mb-2"
-                >
+                <a href="${url}" class="double-banner__item">
                   <img 
                     src="${image}" 
                     loading="lazy"
-                    class="double-banner-image w-full"
+                    class="double-banner__image"
                     alt="banner"
                   />
                 </a>
@@ -60,6 +97,7 @@ export default class BannerDoubleSaji extends LitElement {
             })}
 
           </div>
+
         </div>
       </section>
     `;

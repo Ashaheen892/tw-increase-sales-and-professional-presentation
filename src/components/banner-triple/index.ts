@@ -5,15 +5,12 @@ export default class BannerTripleSaji extends LitElement {
   @property({ type: Object })
   config?: any;
 
-  // لتفعيل Tailwind CSS داخل الـ Shadow DOM أو استخدامه كـ Light DOM
+  // مهم مع سلة (بدون Shadow DOM)
   createRenderRoot() {
     return this;
   }
 
-  /**
-   * دالة لتنظيف مفاتيح البيانات داخل العناصر (Collection Items)
-   * لضمان عمل الكود حتى لو تغير الـ prefix الخاص بالمنصة
-   */
+  // تنظيف المفاتيح
   private normalizeItem(item: any) {
     const obj: any = {};
     if (!item) return obj;
@@ -27,39 +24,91 @@ export default class BannerTripleSaji extends LitElement {
   }
 
   render() {
-    // الوصول إلى المصفوفة بناءً على ID الحقل "banners_triple"
     const banners = this.config?.banners_triple || [];
 
     if (!banners.length) return html``;
 
     return html`
-      <section class="triple-banner-saji s-block my-8 lg:my-16">
-        <div class="container">
+      <style>
+        .triple-banner {
+          margin: 32px 0;
+        }
+
+        @media (min-width: 1024px) {
+          .triple-banner {
+            margin: 64px 0;
+          }
+        }
+
+        .triple-banner__container {
+          max-width: 1440px;
+          margin: 0 auto;
+          padding: 0 16px;
+        }
+
+        /* layout */
+        .triple-banner__grid {
+          column-count: 3;
+          column-gap: 16px;
+        }
+
+        @media (min-width: 1024px) {
+          .triple-banner__grid {
+            column-gap: 15px;
+          }
+        }
+
+        .triple-banner__item {
+          display: inline-flex;
+          width: 100%;
+          margin-bottom: 15px;
+          overflow: hidden;
+          text-decoration: none;
+          break-inside: avoid;
+        }
+        .triple-banner__media{
+          width: 100%;
+        }
+        
+
+        .triple-banner__image {
+          width: 100%;
+          display: block;
+          height: auto;
+        }
+
+        
+      </style>
+
+      <section class="triple-banner">
+        <div class="triple-banner__container">
           
-          <div class="triple-banner-data gap-4" style="columns: 3;">
-            
+          <div class="triple-banner__grid">
+
             ${banners.map((rawItem: any) => {
               const item = this.normalizeItem(rawItem);
 
-              // استخراج القيم
               const image = item.banners_triple_image;
               const url = item.banners_triple_url?.value || '#';
 
               return html`
-                <a href="${url}" class="block overflow-hidden mb-2">
-                  <div class="relative overflow-hidden aspect-[4/3] md:aspect-square lg:aspect-[3/4]">
+                <a href="${url}" class="triple-banner__item">
+
+                  <div class="triple-banner__media">
                     <img 
                       src="${image}" 
                       loading="lazy"
                       alt="triple banner"
-                      class="triple-banner-image w-full"
+                      class="triple-banner__image"
                     />
                   </div>
+
                 </a>
               `;
             })}
 
           </div>
+
         </div>
       </section>
     `;

@@ -5,12 +5,10 @@ export default class LinksSquareRayhana extends LitElement {
   @property({ type: Object })
   config?: any;
 
-  // ❗ مهم عشان Tailwind يشتغل
   createRenderRoot() {
     return this;
   }
 
-  // ✅ تفكيك keys
   private normalizeItem(item: any) {
     const obj: any = {};
 
@@ -26,12 +24,125 @@ export default class LinksSquareRayhana extends LitElement {
     const items = this.config?.square_links_reihana || [];
 
     return html`
-      <section class="min-link-square s-block my-8 lg:my-16">
-        <div class="container">
+      <style>
+        .min-link-square {
+          margin: 32px 0;
+        }
+
+        @media (min-width: 1024px) {
+          .min-link-square {
+            margin: 64px 0;
+          }
+        }
+
+        .min-link-square__container {
+          max-width: 1440px;
+          margin: 0 auto;
+          padding: 0 16px;
+        }
+
+        .min-link-square__title {
+          text-align: center;
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 8px;
+          color: #000;
+        }
+
+        .min-link-square__subtitle {
+          text-align: center;
+          font-size: 14px;
+          color: #6b7280;
+          margin-bottom: 24px;
+        }
+
+        .min-link-square__grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 12px;
+        }
+
+        @media (min-width: 1024px) {
+          .min-link-square__grid {
+            grid-template-columns: repeat(6, 1fr);
+            gap: 24px;
+          }
+        }
+
+        .min-link-square__item {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          gap: 8px;
+          text-decoration: none;
+          color: inherit;
+        }
+
+        .min-link-square__image-wrapper {
+          overflow: hidden;
+        }
+
+        .min-link-square__image-inner {
+          overflow: hidden;
+          aspect-ratio: 1 / 1;
+        }
+
+        .min-link-square__image-inner img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+
+        .min-link-square__content {
+          padding: 8px 0;
+        }
+
+        .min-link-square__title-text {
+          display: block;
+          font-size: 12px;
+          font-weight: bold;
+          color: #000;
+        }
+
+        @media (min-width: 1024px) {
+          .min-link-square__title-text {
+            font-size: 14px;
+          }
+        }
+
+        .min-link-square__desc {
+          display: block;
+          font-size: 12px;
+          opacity: 0.7;
+          color: #555;
+        }
+
+        /* ================= DARK MODE ================= */
+
+        [data-theme="dark"] .min-link-square__title {
+          color: #fff;
+        }
+
+        [data-theme="dark"] .min-link-square__subtitle {
+          color: #aaa;
+        }
+
+        [data-theme="dark"] .min-link-square__title-text {
+          color: #fff;
+        }
+
+        [data-theme="dark"] .min-link-square__desc {
+          color: #bbb;
+        }
+      </style>
+
+      <section class="min-link-square">
+        <div class="min-link-square__container">
 
           ${
             this.config?.square_links_title
-              ? html`<h2 class="text-xl font-bold text-center mb-2">
+              ? html`<h2 class="min-link-square__title">
                 ${this.config.square_links_title}
               </h2>`
               : ''
@@ -39,14 +150,13 @@ export default class LinksSquareRayhana extends LitElement {
 
           ${
             this.config?.square_links_subtitle
-              ? html`<p class="text-sm text-gray-500 text-center mb-6">
+              ? html`<p class="min-link-square__subtitle">
                 ${this.config.square_links_subtitle}
               </p>`
               : ''
           }
 
-          <!-- ✅ Grid -->
-          <div class="grid grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-6">
+          <div class="min-link-square__grid">
 
             ${items.map((raw: any) => {
               const item = this.normalizeItem(raw);
@@ -57,23 +167,20 @@ export default class LinksSquareRayhana extends LitElement {
               const url = item.square_url?.value || '#';
 
               return html`
-                <a href="${url}" class="group flex flex-col text-center gap-2">
+                <a href="${url}" class="min-link-square__item">
 
-                  <div class="overflow-hidden">
-                    <div class="overflow-hidden" style="aspect-ratio:1/1;">
-                      <img
-                        src="${image}"
-                        class="w-full h-full object-cover"
-                      />
+                  <div class="min-link-square__image-wrapper">
+                    <div class="min-link-square__image-inner">
+                      <img src="${image}" loading="lazy" />
                     </div>
                   </div>
 
                   ${
                     title || text
                       ? html`
-                      <div class="py-2">
-                        ${title ? html`<strong class="block text-xs lg:text-sm">${title}</strong>` : ''}
-                        ${text ? html`<span class="block text-xs opacity-70">${text}</span>` : ''}
+                      <div class="min-link-square__content">
+                        ${title ? html`<strong class="min-link-square__title-text">${title}</strong>` : ''}
+                        ${text ? html`<span class="min-link-square__desc">${text}</span>` : ''}
                       </div>
                     `
                       : ''
