@@ -1,65 +1,113 @@
-import { LitElement as d, html as i } from "lit";
-import { property as p } from "lit/decorators.js";
-var u = Object.defineProperty, f = (s, r, n, t) => {
-  for (var e = void 0, a = s.length - 1, o; a >= 0; a--)
-    (o = s[a]) && (e = o(r, n, e) || e);
-  return e && u(r, n, e), e;
+import { LitElement as d, html as p } from "lit";
+import { property as m } from "lit/decorators.js";
+var c = Object.defineProperty, _ = (l, n, r, i) => {
+  for (var e = void 0, t = l.length - 1, a; t >= 0; t--)
+    (a = l[t]) && (e = a(n, r, e) || e);
+  return e && c(n, r, e), e;
 };
-class l extends d {
-  // لتفعيل Tailwind CSS داخل الـ Shadow DOM أو استخدامه كـ Light DOM
+class o extends d {
+  // مهم مع سلة (بدون Shadow DOM)
   createRenderRoot() {
     return this;
   }
-  /**
-   * دالة لتنظيف مفاتيح البيانات داخل العناصر (Collection Items)
-   * لضمان عمل الكود حتى لو تغير الـ prefix الخاص بالمنصة
-   */
-  normalizeItem(r) {
-    const n = {};
-    return r && Object.keys(r).forEach((t) => {
-      const e = t.includes(".") ? t.split(".").pop() : t;
-      n[e] = r[t];
-    }), n;
+  // تنظيف المفاتيح
+  normalizeItem(n) {
+    const r = {};
+    return n && Object.keys(n).forEach((i) => {
+      const e = i.includes(".") ? i.split(".").pop() : i;
+      r[e] = n[i];
+    }), r;
   }
   render() {
-    var n;
-    const r = ((n = this.config) == null ? void 0 : n.banners_triple) || [];
-    return r.length ? i`
-      <section class="triple-banner-saji s-block my-8 lg:my-16">
-        <div class="container mx-auto px-4">
+    var r;
+    const n = ((r = this.config) == null ? void 0 : r.banners_triple) || [];
+    return n.length ? p`
+      <style>
+        .triple-banner {
+          margin: 32px 0;
+        }
+
+        @media (min-width: 1024px) {
+          .triple-banner {
+            margin: 64px 0;
+          }
+        }
+
+        .triple-banner__container {
+          max-width: 1440px;
+          margin: 0 auto;
+          padding: 0 16px;
+        }
+
+        /* layout */
+        .triple-banner__grid {
+          column-count: 3;
+          column-gap: 16px;
+        }
+
+        @media (min-width: 1024px) {
+          .triple-banner__grid {
+            column-gap: 15px;
+          }
+        }
+
+        .triple-banner__item {
+          display: inline-flex;
+          width: 100%;
+          margin-bottom: 15px;
+          overflow: hidden;
+          text-decoration: none;
+          break-inside: avoid;
+        }
+        .triple-banner__media{
+          width: 100%;
+        }
+        
+
+        .triple-banner__image {
+          width: 100%;
+          display: block;
+          height: auto;
+        }
+
+        
+      </style>
+
+      <section class="triple-banner">
+        <div class="triple-banner__container">
           
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
-            
-            ${r.map((t) => {
-      var c;
-      const e = this.normalizeItem(t), a = e.banners_triple_image, o = ((c = e.banners_triple_url) == null ? void 0 : c.value) || "#";
-      return i`
-                <a 
-                  href="${o}" 
-                  class="group block overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
-                >
-                  <div class="relative overflow-hidden aspect-[4/3] md:aspect-square lg:aspect-[3/4]">
+          <div class="triple-banner__grid">
+
+            ${n.map((i) => {
+      var s;
+      const e = this.normalizeItem(i), t = e.banners_triple_image, a = ((s = e.banners_triple_url) == null ? void 0 : s.value) || "#";
+      return p`
+                <a href="${a}" class="triple-banner__item">
+
+                  <div class="triple-banner__media">
                     <img 
-                      src="${a}" 
+                      src="${t}" 
                       loading="lazy"
                       alt="triple banner"
-                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      class="triple-banner__image"
                     />
                   </div>
+
                 </a>
               `;
     })}
 
           </div>
+
         </div>
       </section>
-    ` : i``;
+    ` : p``;
   }
 }
-f([
-  p({ type: Object })
-], l.prototype, "config");
-typeof l < "u" && l.registerSallaComponent("salla-banner-triple");
+_([
+  m({ type: Object })
+], o.prototype, "config");
+typeof o < "u" && o.registerSallaComponent("salla-banner-triple");
 export {
-  l as default
+  o as default
 };

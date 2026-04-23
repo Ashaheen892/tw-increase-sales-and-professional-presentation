@@ -427,7 +427,20 @@
               "key": "556d23db-5018-4183-9de4-462e17cbc539"
             }
           ],
-          "value": [],
+          "value": [
+            {
+              "branches.branch_name": "فرع الرياض",
+              "branches.map_code_url": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.913441784419!2d46.67529531500144!3d24.71355198410786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03c8b9a7b8c9%3A0x9c5e5a7c6c8b9a7c!2sRiyadh%20Front%20Mall!5e0!3m2!1sen!2ssa!4v1701305678901' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+            },
+            {
+              "branches.branch_name": "فرع جدة",
+              "branches.map_code_url": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.913441784419!2d46.67529531500144!3d24.71355198410786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03c8b9a7b8c9%3A0x9c5e5a7c6c8b9a7c!2sRiyadh%20Front%20Mall!5e0!3m2!1sen!2ssa!4v1701305678901' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+            },
+            {
+              "branches.branch_name": "فرع الدمام",
+              "branches.map_code_url": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.913441784419!2d46.67529531500144!3d24.71355198410786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03c8b9a7b8c9%3A0x9c5e5a7c6c8b9a7c!2sRiyadh%20Front%20Mall!5e0!3m2!1sen!2ssa!4v1701305678901' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+            }
+          ],
           "required": false,
           "minLength": 1,
           "maxLength": 30

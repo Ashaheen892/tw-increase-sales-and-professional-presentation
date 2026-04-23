@@ -1,36 +1,61 @@
-import { LitElement as c, html as l } from "lit";
-import { property as d } from "lit/decorators.js";
-var f = Object.defineProperty, u = (a, r, t, n) => {
-  for (var e = void 0, o = a.length - 1, s; o >= 0; o--)
-    (s = a[o]) && (e = s(r, t, e) || e);
-  return e && f(r, t, e), e;
+import { LitElement as s, html as l } from "lit";
+import { property as c } from "lit/decorators.js";
+var p = Object.defineProperty, m = (a, n, r, i) => {
+  for (var e = void 0, t = a.length - 1, d; t >= 0; t--)
+    (d = a[t]) && (e = d(n, r, e) || e);
+  return e && p(n, r, e), e;
 };
-class i extends c {
-  // مهم جداً لعمل Tailwind CSS داخل المكون
+class o extends s {
+  // مهم مع سلة (بدون Shadow DOM)
   createRenderRoot() {
     return this;
   }
-  // دالة لتنظيف المفاتيح من أي prefix (مثل salla_...)
-  normalizeData(r) {
-    const t = {};
-    return r && Object.keys(r).forEach((n) => {
-      const e = n.includes(".") ? n.split(".").pop() : n;
-      t[e] = r[n];
-    }), t;
+  // تنظيف المفاتيح
+  normalizeData(n) {
+    const r = {};
+    return n && Object.keys(n).forEach((i) => {
+      const e = i.includes(".") ? i.split(".").pop() : i;
+      r[e] = n[i];
+    }), r;
   }
   render() {
     var e;
-    const r = this.normalizeData(this.config || {}), t = r.banner_wide_image || "", n = ((e = r.banner_wide_url) == null ? void 0 : e.value) || "#";
-    return t ? l`
-      <section class="wide-banner-saji s-block my-8 lg:my-16">
-        <div class="container mx-auto px-4">
-          <a href="${n}" class="block text-center group overflow-hidden rounded-lg">
+    const n = this.normalizeData(this.config || {}), r = n.banner_wide_image || "", i = ((e = n.banner_wide_url) == null ? void 0 : e.value) || "#";
+    return r ? l`
+      <style>
+        .wide-banner {
+          margin: 32px 0;
+        }
+
+        @media (min-width: 1024px) {
+          .wide-banner {
+            margin: 64px 0;
+          }
+        }
+
+        .wide-banner__container {
+          max-width: 1440px;
+          margin: 0 auto;
+          padding: 0 16px;
+          text-align: center;
+        }
+
+        .wide-banner__link {
+          display: block;
+          overflow: hidden;
+          border-radius: 12px;
+          text-decoration: none;
+        }
+      </style>
+
+      <section class="wide-banner">
+        <div class="wide-banner__container">
+          <a href="${i}" class="wide-banner__link">
             <img 
-              src="${t}" 
+              src="${r}" 
               alt="Banner"
               loading="lazy"
-              class="w-full h-auto m-auto transition-transform duration-500 group-hover:scale-105"
-              style="max-width: 1200px; object-fit: cover;"
+              class="wide-banner__image"
             />
           </a>
         </div>
@@ -38,10 +63,10 @@ class i extends c {
     ` : l``;
   }
 }
-u([
-  d({ type: Object })
-], i.prototype, "config");
-typeof i < "u" && i.registerSallaComponent("salla-banner-wide");
+m([
+  c({ type: Object })
+], o.prototype, "config");
+typeof o < "u" && o.registerSallaComponent("salla-banner-wide");
 export {
-  i as default
+  o as default
 };
