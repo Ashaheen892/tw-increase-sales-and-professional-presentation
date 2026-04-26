@@ -1166,216 +1166,216 @@
             ]
         },
         {
-            "key": "6eb3c632-5746-4ff1-8df8-7a3e4262a33c",
-            "title": "بنر مزدوج",
-            "name": "banner-double",
-            "image": "https://cdn.imgchest.com/files/1d94d981fcd0.png",
-            "preview_image": "https://cdn.imgchest.com/files/1d94d981fcd0.png",
-            "icon": "sicon-image",
-            "fields": [
+          "key": "6eb3c632-5746-4ff1-8df8-7a3e4262a33c",
+          "title": "بنر مزدوج",
+          "name": "banner-double",
+          "image": "https://cdn.imgchest.com/files/e115fc506cba.png",
+          "preview_image": "https://cdn.imgchest.com/files/e115fc506cba.png",
+          "icon": "sicon-image",
+          "fields": [
+            {
+              "id": "banners_double",
+              "type": "collection",
+              "minLength": 2,
+              "maxLength": 20,
+              "value": [
                 {
-                    "id": "banners_double",
-                    "type": "collection",
-                    "minLength": 2,
-                    "maxLength": 20,
-                    "value": [
-                        {
-                            "banners_double_image": "https://img.freepik.com/free-photo/fashionable-woman-pink-coat-black-hat-posing_273443-2426.jpg"
-                        },
-                        {
-                            "banners_double_image": "https://img.freepik.com/free-photo/pretty-woman-coat-looking-camera_23-2148316412.jpg"
-                        },
-                        {
-                            "banners_double_image": "https://img.freepik.com/free-photo/lady-working-as-fashion-designer-creating-new-dress_197531-24020.jpg"
-                        },
-                        {
-                            "banners_double_image": "https://img.freepik.com/free-photo/two-fashionable-young-women-casual-trendy-spring-coat-boots-with-heels-black-hat-stylish-handbag_273443-2436.jpg"
-                        }
-                    ],
-                    "fields": [
-                        {
-                            "id": "banners_double_image",
-                            "type": "string",
-                            "format": "image",
-                            "required": true
-                        },
-                        {
-                            "type": "items",
-                            "icon": "sicon-link",
-                            "label": "الرابط",
-                            "id": "banners_double_url",
-                            "value": null,
-                            "description": null,
-                            "required": false,
-                            "format": "variable-list",
-                            "searchable": true,
-                            "source": "offers_link",
-                            "sources": [
-                                {
-                                    "label": "منتج",
-                                    "key": "products",
-                                    "value": "products"
-                                },
-                                {
-                                    "label": "تصنيف",
-                                    "key": "categories",
-                                    "value": "categories"
-                                },
-                                {
-                                    "label": "ماركة تجارية",
-                                    "key": "brands",
-                                    "value": "brands"
-                                },
-                                {
-                                    "label": "صفحة تعريفية",
-                                    "key": "pages",
-                                    "value": "pages"
-                                },
-                                {
-                                    "label": "مقالة",
-                                    "key": "blog_articles",
-                                    "value": "blog_articles"
-                                },
-                                {
-                                    "label": "تصنيف ضمن المدونة",
-                                    "key": "blog_categories",
-                                    "value": "blog_categories"
-                                },
-                                {
-                                    "label": "التخفيضات",
-                                    "key": "offers_link",
-                                    "value": "offers_link"
-                                },
-                                {
-                                    "label": "الماركات التجارية",
-                                    "key": "brands_link",
-                                    "value": "brands_link"
-                                },
-                                {
-                                    "label": "المدونة",
-                                    "key": "blog_link",
-                                    "value": "blog_link"
-                                },
-                                {
-                                    "label": "رابط خارجي",
-                                    "key": "custom",
-                                    "value": "custom"
-                                }
-                            ],
-                            "key": "0be3b255-4333-41f9-b8ef-2b25ab4ccf70"
-                        }
-                    ]
+                  "banners_double_image": "https://img.freepik.com/free-photo/fashionable-woman-pink-coat-black-hat-posing_273443-2426.jpg"
+                },
+                {
+                  "banners_double_image": "https://img.freepik.com/free-photo/pretty-woman-coat-looking-camera_23-2148316412.jpg"
+                },
+                {
+                  "banners_double_image": "https://img.freepik.com/free-photo/lady-working-as-fashion-designer-creating-new-dress_197531-24020.jpg"
+                },
+                {
+                  "banners_double_image": "https://img.freepik.com/free-photo/two-fashionable-young-women-casual-trendy-spring-coat-boots-with-heels-black-hat-stylish-handbag_273443-2436.jpg"
                 }
-            ]
+              ],
+              "fields": [
+                {
+                  "id": "banners_double_image",
+                  "type": "string",
+                  "format": "image",
+                  "required": true
+                },
+                {
+                  "type": "items",
+                  "icon": "sicon-link",
+                  "label": "الرابط",
+                  "id": "banners_double_url",
+                  "value": null,
+                  "description": null,
+                  "required": false,
+                  "format": "variable-list",
+                  "searchable": true,
+                  "source": "offers_link",
+                  "sources": [
+                    {
+                      "label": "منتج",
+                      "key": "products",
+                      "value": "products"
+                    },
+                    {
+                      "label": "تصنيف",
+                      "key": "categories",
+                      "value": "categories"
+                    },
+                    {
+                      "label": "ماركة تجارية",
+                      "key": "brands",
+                      "value": "brands"
+                    },
+                    {
+                      "label": "صفحة تعريفية",
+                      "key": "pages",
+                      "value": "pages"
+                    },
+                    {
+                      "label": "مقالة",
+                      "key": "blog_articles",
+                      "value": "blog_articles"
+                    },
+                    {
+                      "label": "تصنيف ضمن المدونة",
+                      "key": "blog_categories",
+                      "value": "blog_categories"
+                    },
+                    {
+                      "label": "التخفيضات",
+                      "key": "offers_link",
+                      "value": "offers_link"
+                    },
+                    {
+                      "label": "الماركات التجارية",
+                      "key": "brands_link",
+                      "value": "brands_link"
+                    },
+                    {
+                      "label": "المدونة",
+                      "key": "blog_link",
+                      "value": "blog_link"
+                    },
+                    {
+                      "label": "رابط خارجي",
+                      "key": "custom",
+                      "value": "custom"
+                    }
+                  ],
+                  "key": "0be3b255-4333-41f9-b8ef-2b25ab4ccf70"
+                }
+              ]
+            }
+          ]
         },
         {
-            "key": "80be7093-881f-4fe7-a706-9df3559203c5",
-            "title": "بنر ثلاثي",
-            "name": "banner-triple",
-            "icon": "sicon-image",
-            "image": "https://cdn.imgchest.com/files/d66e2f34bc78.png",
-            "preview_image": "https://cdn.imgchest.com/files/d66e2f34bc78.png",
-            "fields": [
+          "key": "80be7093-881f-4fe7-a706-9df3559203c5",
+          "title": "بنر ثلاثي",
+          "name": "banner-triple",
+          "icon": "sicon-image",
+          "image": "https://cdn.imgchest.com/files/074302cf975d.png",
+          "preview_image": "https://cdn.imgchest.com/files/074302cf975d.png",
+          "fields": [
+            {
+              "id": "banners_triple",
+              "type": "collection",
+              "minLength": 3,
+              "maxLength": 21,
+              "value": [
                 {
-                    "id": "banners_triple",
-                    "type": "collection",
-                    "minLength": 3,
-                    "maxLength": 21,
-                    "value": [
-                        {
-                            "banners_triple_image": "https://img.freepik.com/free-photo/fashionable-woman-pink-coat-black-hat-posing_273443-2426.jpg"
-                        },
-                        {
-                            "banners_triple_image": "https://img.freepik.com/free-photo/pretty-woman-coat-looking-camera_23-2148316412.jpg"
-                        },
-                        {
-                            "banners_triple_image": "https://img.freepik.com/free-photo/lady-working-as-fashion-designer-creating-new-dress_197531-24020.jpg"
-                        },
-                        {
-                            "banners_triple_image": "https://img.freepik.com/free-photo/two-fashionable-young-women-casual-trendy-spring-coat-boots-with-heels-black-hat-stylish-handbag_273443-2436.jpg"
-                        },
-                        {
-                            "banners_triple_image": "https://img.freepik.com/free-photo/beautiful-young-woman-with-shopping-bags_23-2148316136.jpg"
-                        },
-                        {
-                            "banners_triple_image": "https://img.freepik.com/free-photo/stylish-woman-leather-coat-black-hat-demonstrate-winter-fashion-trends-white_273443-4940.jpg"
-                        }
-                    ],
-                    "fields": [
-                        {
-                            "id": "banners_triple_image",
-                            "type": "string",
-                            "format": "image",
-                            "required": true
-                        },
-                        {
-                            "type": "items",
-                            "icon": "sicon-link",
-                            "label": "الرابط",
-                            "id": "banners_triple_url",
-                            "value": null,
-                            "description": null,
-                            "required": false,
-                            "format": "variable-list",
-                            "searchable": true,
-                            "source": "offers_link",
-                            "sources": [
-                                {
-                                    "label": "منتج",
-                                    "key": "products",
-                                    "value": "products"
-                                },
-                                {
-                                    "label": "تصنيف",
-                                    "key": "categories",
-                                    "value": "categories"
-                                },
-                                {
-                                    "label": "ماركة تجارية",
-                                    "key": "brands",
-                                    "value": "brands"
-                                },
-                                {
-                                    "label": "صفحة تعريفية",
-                                    "key": "pages",
-                                    "value": "pages"
-                                },
-                                {
-                                    "label": "مقالة",
-                                    "key": "blog_articles",
-                                    "value": "blog_articles"
-                                },
-                                {
-                                    "label": "تصنيف ضمن المدونة",
-                                    "key": "blog_categories",
-                                    "value": "blog_categories"
-                                },
-                                {
-                                    "label": "التخفيضات",
-                                    "key": "offers_link",
-                                    "value": "offers_link"
-                                },
-                                {
-                                    "label": "الماركات التجارية",
-                                    "key": "brands_link",
-                                    "value": "brands_link"
-                                },
-                                {
-                                    "label": "المدونة",
-                                    "key": "blog_link",
-                                    "value": "blog_link"
-                                },
-                                {
-                                    "label": "رابط خارجي",
-                                    "key": "custom",
-                                    "value": "custom"
-                                }
-                            ],
-                            "key": "3d34e525-e309-4241-9433-6ed62abc22d7"
-                        }
-                    ]
+                  "banners_triple_image": "https://img.freepik.com/free-photo/fashionable-woman-pink-coat-black-hat-posing_273443-2426.jpg"
+                },
+                {
+                  "banners_triple_image": "https://img.freepik.com/free-photo/pretty-woman-coat-looking-camera_23-2148316412.jpg"
+                },
+                {
+                  "banners_triple_image": "https://img.freepik.com/free-photo/lady-working-as-fashion-designer-creating-new-dress_197531-24020.jpg"
+                },
+                {
+                  "banners_triple_image": "https://img.freepik.com/free-photo/two-fashionable-young-women-casual-trendy-spring-coat-boots-with-heels-black-hat-stylish-handbag_273443-2436.jpg"
+                },
+                {
+                  "banners_triple_image": "https://img.freepik.com/free-photo/beautiful-young-woman-with-shopping-bags_23-2148316136.jpg"
+                },
+                {
+                  "banners_triple_image": "https://img.freepik.com/free-photo/stylish-woman-leather-coat-black-hat-demonstrate-winter-fashion-trends-white_273443-4940.jpg"
                 }
-            ]
+              ],
+              "fields": [
+                {
+                  "id": "banners_triple_image",
+                  "type": "string",
+                  "format": "image",
+                  "required": true
+                },
+                {
+                  "type": "items",
+                  "icon": "sicon-link",
+                  "label": "الرابط",
+                  "id": "banners_triple_url",
+                  "value": null,
+                  "description": null,
+                  "required": false,
+                  "format": "variable-list",
+                  "searchable": true,
+                  "source": "offers_link",
+                  "sources": [
+                    {
+                      "label": "منتج",
+                      "key": "products",
+                      "value": "products"
+                    },
+                    {
+                      "label": "تصنيف",
+                      "key": "categories",
+                      "value": "categories"
+                    },
+                    {
+                      "label": "ماركة تجارية",
+                      "key": "brands",
+                      "value": "brands"
+                    },
+                    {
+                      "label": "صفحة تعريفية",
+                      "key": "pages",
+                      "value": "pages"
+                    },
+                    {
+                      "label": "مقالة",
+                      "key": "blog_articles",
+                      "value": "blog_articles"
+                    },
+                    {
+                      "label": "تصنيف ضمن المدونة",
+                      "key": "blog_categories",
+                      "value": "blog_categories"
+                    },
+                    {
+                      "label": "التخفيضات",
+                      "key": "offers_link",
+                      "value": "offers_link"
+                    },
+                    {
+                      "label": "الماركات التجارية",
+                      "key": "brands_link",
+                      "value": "brands_link"
+                    },
+                    {
+                      "label": "المدونة",
+                      "key": "blog_link",
+                      "value": "blog_link"
+                    },
+                    {
+                      "label": "رابط خارجي",
+                      "key": "custom",
+                      "value": "custom"
+                    }
+                  ],
+                  "key": "3d34e525-e309-4241-9433-6ed62abc22d7"
+                }
+              ]
+            }
+          ]
         }
     ]
 }
