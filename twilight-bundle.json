@@ -498,172 +498,172 @@
                     "required": false
                 },
                 {
-                    "id": "rectangular_links",
-                    "type": "collection",
-                    "format": "collection",
-                    "required": true,
-                    "minLength": 3,
-                    "maxLength": 32,
-                    "item_label": "رابط",
-                    "value": [
+                  "id": "rectangular_links",
+                  "type": "collection",
+                  "format": "collection",
+                  "required": true,
+                  "minLength": 3,
+                  "maxLength": 32,
+                  "item_label": "رابط",
+                  "value": [
+                    {
+                      "rectangular_links.rectangular_title": "الأكثر مبيعًا",
+                      "rectangular_links.rectangular_text": "90 منتج",
+                      "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1483985988355-763728e1935b"
+                    },
+                    {
+                      "rectangular_links.rectangular_title": "أحدث المنتجات",
+                      "rectangular_links.rectangular_text": "300 منتج",
+                      "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c"
+                    },
+                    {
+                      "rectangular_links.rectangular_title": "وصل حديثًا",
+                      "rectangular_links.rectangular_text": "40 منتج",
+                      "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
+                    },
+                    {
+                      "rectangular_links.rectangular_title": "تخفيضات",
+                      "rectangular_links.rectangular_text": "200 منتج",
+                      "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2"
+                    },
+                    {
+                      "rectangular_links.rectangular_title": "عروض خاصة",
+                      "rectangular_links.rectangular_text": "40 منتج",
+                      "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f"
+                    },
+                    {
+                      "rectangular_links.rectangular_title": "باكيجات التوفير",
+                      "rectangular_links.rectangular_text": "80 منتج",
+                      "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1445205170230-053b83016050"
+                    },
+                    {
+                      "rectangular_links.rectangular_title": "أقل من 500 ريال",
+                      "rectangular_links.rectangular_text": "70 منتج",
+                      "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d"
+                    },
+                    {
+                      "rectangular_links.rectangular_title": "أقل من 800 ريال",
+                      "rectangular_links.rectangular_text": "50 منتج",
+                      "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1509631179647-0177331693ae"
+                    },
+                    {
+                      "rectangular_links.rectangular_title": "أقل من 1000 ريال",
+                      "rectangular_links.rectangular_text": "150 منتج",
+                      "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518"
+                    }
+                  ],
+                  "fields": [
+                    {
+                      "id": "rectangular_links.rectangular_image",
+                      "key": "bd010c80-3cad-4b9e-8392-76f9b0cf5b01",
+                      "type": "string",
+                      "format": "image",
+                      "label": "الصوره",
+                      "description": "المقاس المقترح: 450 عرض و 600 ارتفاع او اي مقاس مستطيل",
+                      "labelHTML": null,
+                      "placeholder": "e.g. https://hostname.com/image.png",
+                      "icon": "sicon-image",
+                      "value": null,
+                      "required": true
+                    },
+                    {
+                      "type": "string",
+                      "icon": "sicon-format-text-alt",
+                      "multilanguage": true,
+                      "id": "rectangular_links.rectangular_title",
+                      "value": "عنوان الميزة",
+                      "required": false,
+                      "format": "text",
+                      "label": "أدخل عنوان الميزة",
+                      "description": " يظهر عنوان الميزة في سطر واحد ",
+                      "placeholder": "أدخل عنوان للرابط هنا...",
+                      "minLength": 0,
+                      "maxLength": "50",
+                      "key": "e34000e8-d677-4098-9ee3-5bc87d13c0d8"
+                    },
+                    {
+                      "id": "rectangular_links.rectangular_text",
+                      "key": "40dec06f-56c4-4859-88fc-57dbdf17402e",
+                      "type": "string",
+                      "format": "text",
+                      "label": "عنوان فرعي",
+                      "description": " يظهر العنوان فرعي الميزة في سطر واحد ",
+                      "labelHTML": null,
+                      "placeholder": "150 منتج",
+                      "icon": "sicon-format-text-alt",
+                      "value": "150 منتج",
+                      "multilanguage": true,
+                      "required": false,
+                      "minLength": 0,
+                      "maxLength": 30
+                    },
+                    {
+                      "type": "items",
+                      "icon": "sicon-link",
+                      "label": "الرابط",
+                      "id": "rectangular_links.rectangular_url",
+                      "value": null,
+                      "description": null,
+                      "required": false,
+                      "format": "variable-list",
+                      "searchable": true,
+                      "source": "offers_link",
+                      "sources": [
                         {
-                            "rectangular_links.rectangular_title": "الاكثر مبيعا",
-                            "rectangular_links.rectangular_text": "90 منتج",
-                            "rectangular_links.rectangular_image": "https://img.freepik.com/free-photo/happy-baby-posing_1328-3222.jpg"
+                          "label": "منتج",
+                          "key": "products",
+                          "value": "products"
                         },
                         {
-                            "rectangular_links.rectangular_title": "احدث المنتجات",
-                            "rectangular_links.rectangular_text": "300 منتج",
-                            "rectangular_links.rectangular_image": "https://img.freepik.com/free-photo/man-portrait_1296-626.jpg"
+                          "label": "تصنيف",
+                          "key": "categories",
+                          "value": "categories"
                         },
                         {
-                            "rectangular_links.rectangular_title": "وصل حديثا",
-                            "rectangular_links.rectangular_text": "40 منتج",
-                            "rectangular_links.rectangular_image": "https://img.freepik.com/free-photo/girl-sunglasses-posing-with-shopping-bags_23-2147825644.jpg"
+                          "label": "ماركة تجارية",
+                          "key": "brands",
+                          "value": "brands"
                         },
                         {
-                            "rectangular_links.rectangular_title": "تخفيضات",
-                            "rectangular_links.rectangular_text": "200 منتج",
-                            "rectangular_links.rectangular_image": "https://img.freepik.com/free-photo/happy-baby-posing_1328-3222.jpg"
+                          "label": "صفحة تعريفية",
+                          "key": "pages",
+                          "value": "pages"
                         },
                         {
-                            "rectangular_links.rectangular_title": "عروض خاصة",
-                            "rectangular_links.rectangular_text": "40 منتج",
-                            "rectangular_links.rectangular_image": "https://img.freepik.com/free-photo/man-portrait_1296-626.jpg"
+                          "label": "مقالة",
+                          "key": "blog_articles",
+                          "value": "blog_articles"
                         },
                         {
-                            "rectangular_links.rectangular_title": "باكيجات التوفير",
-                            "rectangular_links.rectangular_text": "80 منتج",
-                            "rectangular_links.rectangular_image": "https://img.freepik.com/free-photo/girl-sunglasses-posing-with-shopping-bags_23-2147825644.jpg"
+                          "label": "تصنيف ضمن المدونة",
+                          "key": "blog_categories",
+                          "value": "blog_categories"
                         },
                         {
-                            "rectangular_links.rectangular_title": "اقل من 500 ريال",
-                            "rectangular_links.rectangular_text": "70 منتج",
-                            "rectangular_links.rectangular_image": "https://img.freepik.com/free-photo/happy-baby-posing_1328-3222.jpg"
+                          "label": "التخفيضات",
+                          "key": "offers_link",
+                          "value": "offers_link"
                         },
                         {
-                            "rectangular_links.rectangular_title": "اقل من 800 ريال",
-                            "rectangular_links.rectangular_text": "50 منتج",
-                            "rectangular_links.rectangular_image": "https://img.freepik.com/free-photo/man-portrait_1296-626.jpg"
+                          "label": "الماركات التجارية",
+                          "key": "brands_link",
+                          "value": "brands_link"
                         },
                         {
-                            "rectangular_links.rectangular_title": "اقل من 1000 ريال",
-                            "rectangular_links.rectangular_text": "150 منتج",
-                            "rectangular_links.rectangular_image": "https://img.freepik.com/free-photo/girl-sunglasses-posing-with-shopping-bags_23-2147825644.jpg"
+                          "label": "المدونة",
+                          "key": "blog_link",
+                          "value": "blog_link"
+                        },
+                        {
+                          "label": "رابط خارجي",
+                          "key": "custom",
+                          "value": "custom"
                         }
-                    ],
-                    "fields": [
-                        {
-                            "id": "rectangular_links.rectangular_image",
-                            "key": "bd010c80-3cad-4b9e-8392-76f9b0cf5b01",
-                            "type": "string",
-                            "format": "image",
-                            "label": "الصوره",
-                            "description": "المقاس المقترح: 450 عرض و 600 ارتفاع او اي مقاس مستطيل",
-                            "labelHTML": null,
-                            "placeholder": "e.g. https://hostname.com/image.png",
-                            "icon": "sicon-image",
-                            "value": null,
-                            "required": true
-                        },
-                        {
-                            "type": "string",
-                            "icon": "sicon-format-text-alt",
-                            "multilanguage": true,
-                            "id": "rectangular_links.rectangular_title",
-                            "value": "عنوان الميزة",
-                            "required": false,
-                            "format": "text",
-                            "label": "أدخل عنوان الميزة",
-                            "description": " يظهر عنوان الميزة في سطر واحد ",
-                            "placeholder": "أدخل عنوان للرابط هنا...",
-                            "minLength": 0,
-                            "maxLength": "50",
-                            "key": "e34000e8-d677-4098-9ee3-5bc87d13c0d8"
-                        },
-                        {
-                            "id": "rectangular_links.rectangular_text",
-                            "key": "40dec06f-56c4-4859-88fc-57dbdf17402e",
-                            "type": "string",
-                            "format": "text",
-                            "label": "عنوان فرعي",
-                            "description": " يظهر العنوان فرعي الميزة في سطر واحد ",
-                            "labelHTML": null,
-                            "placeholder": "150 منتج",
-                            "icon": "sicon-format-text-alt",
-                            "value": "150 منتج",
-                            "multilanguage": true,
-                            "required": false,
-                            "minLength": 0,
-                            "maxLength": 30
-                        },
-                        {
-                            "type": "items",
-                            "icon": "sicon-link",
-                            "label": "الرابط",
-                            "id": "rectangular_links.rectangular_url",
-                            "value": null,
-                            "description": null,
-                            "required": false,
-                            "format": "variable-list",
-                            "searchable": true,
-                            "source": "offers_link",
-                            "sources": [
-                                {
-                                    "label": "منتج",
-                                    "key": "products",
-                                    "value": "products"
-                                },
-                                {
-                                    "label": "تصنيف",
-                                    "key": "categories",
-                                    "value": "categories"
-                                },
-                                {
-                                    "label": "ماركة تجارية",
-                                    "key": "brands",
-                                    "value": "brands"
-                                },
-                                {
-                                    "label": "صفحة تعريفية",
-                                    "key": "pages",
-                                    "value": "pages"
-                                },
-                                {
-                                    "label": "مقالة",
-                                    "key": "blog_articles",
-                                    "value": "blog_articles"
-                                },
-                                {
-                                    "label": "تصنيف ضمن المدونة",
-                                    "key": "blog_categories",
-                                    "value": "blog_categories"
-                                },
-                                {
-                                    "label": "التخفيضات",
-                                    "key": "offers_link",
-                                    "value": "offers_link"
-                                },
-                                {
-                                    "label": "الماركات التجارية",
-                                    "key": "brands_link",
-                                    "value": "brands_link"
-                                },
-                                {
-                                    "label": "المدونة",
-                                    "key": "blog_link",
-                                    "value": "blog_link"
-                                },
-                                {
-                                    "label": "رابط خارجي",
-                                    "key": "custom",
-                                    "value": "custom"
-                                }
-                            ],
-                            "key": "96d66f1f-6624-4668-ac04-3912a540b0fd"
-                        }
-                    ],
-                    "key": "8dca80f3-f054-4bca-a681-54f4c1a42175"
+                      ],
+                      "key": "96d66f1f-6624-4668-ac04-3912a540b0fd"
+                    }
+                  ],
+                  "key": "8dca80f3-f054-4bca-a681-54f4c1a42175"
                 }
             ]
         },
@@ -705,172 +705,172 @@
                     "maxLength": 300
                 },
                 {
-                    "id": "square_links_reihana",
-                    "type": "collection",
-                    "format": "collection",
-                    "required": true,
-                    "minLength": 3,
-                    "maxLength": 32,
-                    "item_label": "رابط",
-                    "value": [
+                  "id": "square_links_reihana",
+                  "type": "collection",
+                  "format": "collection",
+                  "required": true,
+                  "minLength": 3,
+                  "maxLength": 32,
+                  "item_label": "رابط",
+                  "value": [
+                    {
+                      "square_links_reihana.square_title": "الأكثر مبيعًا",
+                      "square_links_reihana.square_text": "90 منتج",
+                      "square_links_reihana.square_image": "https://images.unsplash.com/photo-1506629905607-c52b1f6b5b6f"
+                    },
+                    {
+                      "square_links_reihana.square_title": "أحدث المنتجات",
+                      "square_links_reihana.square_text": "300 منتج",
+                      "square_links_reihana.square_image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+                    },
+                    {
+                      "square_links_reihana.square_title": "وصل حديثًا",
+                      "square_links_reihana.square_text": "40 منتج",
+                      "square_links_reihana.square_image": "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6"
+                    },
+                    {
+                      "square_links_reihana.square_title": "تخفيضات",
+                      "square_links_reihana.square_text": "200 منتج",
+                      "square_links_reihana.square_image": "https://images.unsplash.com/photo-1495385794356-15371f348c31"
+                    },
+                    {
+                      "square_links_reihana.square_title": "عروض خاصة",
+                      "square_links_reihana.square_text": "40 منتج",
+                      "square_links_reihana.square_image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f"
+                    },
+                    {
+                      "square_links_reihana.square_title": "باكيجات التوفير",
+                      "square_links_reihana.square_text": "80 منتج",
+                      "square_links_reihana.square_image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
+                    },
+                    {
+                      "square_links_reihana.square_title": "أقل من 500 ريال",
+                      "square_links_reihana.square_text": "70 منتج",
+                      "square_links_reihana.square_image": "https://images.unsplash.com/photo-1483985988355-763728e1935b"
+                    },
+                    {
+                      "square_links_reihana.square_title": "أقل من 800 ريال",
+                      "square_links_reihana.square_text": "50 منتج",
+                      "square_links_reihana.square_image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+                    },
+                    {
+                      "square_links_reihana.square_title": "أقل من 1000 ريال",
+                      "square_links_reihana.square_text": "150 منتج",
+                      "square_links_reihana.square_image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f"
+                    }
+                  ],
+                  "fields": [
+                    {
+                      "id": "square_links_reihana.square_image",
+                      "key": "68fbe447-7887-4d07-9d84-fad0aaea1b17",
+                      "type": "string",
+                      "format": "image",
+                      "label": "الصوره",
+                      "description": "المقاس المقترح: 450 عرض و 450 ارتفاع او اي مقاس مستطيل",
+                      "labelHTML": null,
+                      "placeholder": "e.g. https://hostname.com/image.png",
+                      "icon": "sicon-image",
+                      "value": null,
+                      "required": true
+                    },
+                    {
+                      "type": "string",
+                      "icon": "sicon-format-text-alt",
+                      "multilanguage": true,
+                      "id": "square_links_reihana.square_title",
+                      "value": "عنوان الميزة",
+                      "required": false,
+                      "format": "text",
+                      "label": "أدخل عنوان الميزة",
+                      "description": " يظهر عنوان الميزة في سطر واحد ",
+                      "placeholder": "أدخل عنوان للرابط هنا...",
+                      "minLength": 0,
+                      "maxLength": "50",
+                      "key": "bf1815a9-26bf-431a-b091-0f68cc12b232"
+                    },
+                    {
+                      "id": "square_links_reihana.square_text",
+                      "key": "bb662e5f-3a23-4d1d-952c-405461813193",
+                      "type": "string",
+                      "format": "text",
+                      "label": "عنوان فرعي",
+                      "description": " يظهر العنوان فرعي الميزة في سطر واحد ",
+                      "labelHTML": null,
+                      "placeholder": "150 منتج",
+                      "icon": "sicon-format-text-alt",
+                      "value": "150 منتج",
+                      "multilanguage": true,
+                      "required": false,
+                      "minLength": 0,
+                      "maxLength": 30
+                    },
+                    {
+                      "type": "items",
+                      "icon": "sicon-link",
+                      "label": "الرابط",
+                      "id": "square_links_reihana.square_url",
+                      "value": null,
+                      "description": null,
+                      "required": false,
+                      "format": "variable-list",
+                      "searchable": true,
+                      "source": "offers_link",
+                      "sources": [
                         {
-                            "square_links_reihana.square_title": "الاكثر مبيعا",
-                            "square_links_reihana.square_text": "90 منتج",
-                            "square_links_reihana.square_image": "https://img.freepik.com/free-photo/happy-baby-posing_1328-3222.jpg"
+                          "label": "منتج",
+                          "key": "products",
+                          "value": "products"
                         },
                         {
-                            "square_links_reihana.square_title": "احدث المنتجات",
-                            "square_links_reihana.square_text": "300 منتج",
-                            "square_links_reihana.square_image": "https://img.freepik.com/free-photo/man-portrait_1296-626.jpg"
+                          "label": "تصنيف",
+                          "key": "categories",
+                          "value": "categories"
                         },
                         {
-                            "square_links_reihana.square_title": "وصل حديثا",
-                            "square_links_reihana.square_text": "40 منتج",
-                            "square_links_reihana.square_image": "https://img.freepik.com/free-photo/girl-sunglasses-posing-with-shopping-bags_23-2147825644.jpg"
+                          "label": "ماركة تجارية",
+                          "key": "brands",
+                          "value": "brands"
                         },
                         {
-                            "square_links_reihana.square_title": "تخفيضات",
-                            "square_links_reihana.square_text": "200 منتج",
-                            "square_links_reihana.square_image": "https://img.freepik.com/free-photo/happy-baby-posing_1328-3222.jpg"
+                          "label": "صفحة تعريفية",
+                          "key": "pages",
+                          "value": "pages"
                         },
                         {
-                            "square_links_reihana.square_title": "عروض خاصة",
-                            "square_links_reihana.square_text": "40 منتج",
-                            "square_links_reihana.square_image": "https://img.freepik.com/free-photo/man-portrait_1296-626.jpg"
+                          "label": "مقالة",
+                          "key": "blog_articles",
+                          "value": "blog_articles"
                         },
                         {
-                            "square_links_reihana.square_title": "باكيجات التوفير",
-                            "square_links_reihana.square_text": "80 منتج",
-                            "square_links_reihana.square_image": "https://img.freepik.com/free-photo/girl-sunglasses-posing-with-shopping-bags_23-2147825644.jpg"
+                          "label": "تصنيف ضمن المدونة",
+                          "key": "blog_categories",
+                          "value": "blog_categories"
                         },
                         {
-                            "square_links_reihana.square_title": "اقل من 500 ريال",
-                            "square_links_reihana.square_text": "70 منتج",
-                            "square_links_reihana.square_image": "https://img.freepik.com/free-photo/happy-baby-posing_1328-3222.jpg"
+                          "label": "التخفيضات",
+                          "key": "offers_link",
+                          "value": "offers_link"
                         },
                         {
-                            "square_links_reihana.square_title": "اقل من 800 ريال",
-                            "square_links_reihana.square_text": "50 منتج",
-                            "square_links_reihana.square_image": "https://img.freepik.com/free-photo/man-portrait_1296-626.jpg"
+                          "label": "الماركات التجارية",
+                          "key": "brands_link",
+                          "value": "brands_link"
                         },
                         {
-                            "square_links_reihana.square_title": "اقل من 1000 ريال",
-                            "square_links_reihana.square_text": "150 منتج",
-                            "square_links_reihana.square_image": "https://img.freepik.com/free-photo/girl-sunglasses-posing-with-shopping-bags_23-2147825644.jpg"
+                          "label": "المدونة",
+                          "key": "blog_link",
+                          "value": "blog_link"
+                        },
+                        {
+                          "label": "رابط خارجي",
+                          "key": "custom",
+                          "value": "custom"
                         }
-                    ],
-                    "fields": [
-                        {
-                            "id": "square_links_reihana.square_image",
-                            "key": "68fbe447-7887-4d07-9d84-fad0aaea1b17",
-                            "type": "string",
-                            "format": "image",
-                            "label": "الصوره",
-                            "description": "المقاس المقترح: 450 عرض و 450 ارتفاع او اي مقاس مستطيل",
-                            "labelHTML": null,
-                            "placeholder": "e.g. https://hostname.com/image.png",
-                            "icon": "sicon-image",
-                            "value": null,
-                            "required": true
-                        },
-                        {
-                            "type": "string",
-                            "icon": "sicon-format-text-alt",
-                            "multilanguage": true,
-                            "id": "square_links_reihana.square_title",
-                            "value": "عنوان الميزة",
-                            "required": false,
-                            "format": "text",
-                            "label": "أدخل عنوان الميزة",
-                            "description": " يظهر عنوان الميزة في سطر واحد ",
-                            "placeholder": "أدخل عنوان للرابط هنا...",
-                            "minLength": 0,
-                            "maxLength": "50",
-                            "key": "bf1815a9-26bf-431a-b091-0f68cc12b232"
-                        },
-                        {
-                            "id": "square_links_reihana.square_text",
-                            "key": "bb662e5f-3a23-4d1d-952c-405461813193",
-                            "type": "string",
-                            "format": "text",
-                            "label": "عنوان فرعي",
-                            "description": " يظهر العنوان فرعي الميزة في سطر واحد ",
-                            "labelHTML": null,
-                            "placeholder": "150 منتج",
-                            "icon": "sicon-format-text-alt",
-                            "value": "150 منتج",
-                            "multilanguage": true,
-                            "required": false,
-                            "minLength": 0,
-                            "maxLength": 30
-                        },
-                        {
-                            "type": "items",
-                            "icon": "sicon-link",
-                            "label": "الرابط",
-                            "id": "square_links_reihana.square_url",
-                            "value": null,
-                            "description": null,
-                            "required": false,
-                            "format": "variable-list",
-                            "searchable": true,
-                            "source": "offers_link",
-                            "sources": [
-                                {
-                                    "label": "منتج",
-                                    "key": "products",
-                                    "value": "products"
-                                },
-                                {
-                                    "label": "تصنيف",
-                                    "key": "categories",
-                                    "value": "categories"
-                                },
-                                {
-                                    "label": "ماركة تجارية",
-                                    "key": "brands",
-                                    "value": "brands"
-                                },
-                                {
-                                    "label": "صفحة تعريفية",
-                                    "key": "pages",
-                                    "value": "pages"
-                                },
-                                {
-                                    "label": "مقالة",
-                                    "key": "blog_articles",
-                                    "value": "blog_articles"
-                                },
-                                {
-                                    "label": "تصنيف ضمن المدونة",
-                                    "key": "blog_categories",
-                                    "value": "blog_categories"
-                                },
-                                {
-                                    "label": "التخفيضات",
-                                    "key": "offers_link",
-                                    "value": "offers_link"
-                                },
-                                {
-                                    "label": "الماركات التجارية",
-                                    "key": "brands_link",
-                                    "value": "brands_link"
-                                },
-                                {
-                                    "label": "المدونة",
-                                    "key": "blog_link",
-                                    "value": "blog_link"
-                                },
-                                {
-                                    "label": "رابط خارجي",
-                                    "key": "custom",
-                                    "value": "custom"
-                                }
-                            ],
-                            "key": "b5fb71f0-7e00-4a89-91d2-ce42f9b051b2"
-                        }
-                    ],
-                    "key": "9541cd7f-6879-4429-8dd9-9ce17b1d17d4"
+                      ],
+                      "key": "b5fb71f0-7e00-4a89-91d2-ce42f9b051b2"
+                    }
+                  ],
+                  "key": "9541cd7f-6879-4429-8dd9-9ce17b1d17d4"
                 }
             ]
         },
@@ -913,172 +913,172 @@
                     "maxLength": 300
                 },
                 {
-                    "id": "circular_links_reihana",
-                    "type": "collection",
-                    "format": "collection",
-                    "required": true,
-                    "minLength": 3,
-                    "maxLength": 32,
-                    "item_label": "رابط",
-                    "value": [
+                  "id": "circular_links_reihana",
+                  "type": "collection",
+                  "format": "collection",
+                  "required": true,
+                  "minLength": 3,
+                  "maxLength": 32,
+                  "item_label": "رابط",
+                  "value": [
+                    {
+                      "circular_links_reihana.circular_title": "الأكثر مبيعًا",
+                      "circular_links_reihana.circular_text": "90 منتج",
+                      "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+                    },
+                    {
+                      "circular_links_reihana.circular_title": "أحدث المنتجات",
+                      "circular_links_reihana.circular_text": "300 منتج",
+                      "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6"
+                    },
+                    {
+                      "circular_links_reihana.circular_title": "وصل حديثًا",
+                      "circular_links_reihana.circular_text": "40 منتج",
+                      "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f"
+                    },
+                    {
+                      "circular_links_reihana.circular_title": "تخفيضات",
+                      "circular_links_reihana.circular_text": "200 منتج",
+                      "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1495385794356-15371f348c31"
+                    },
+                    {
+                      "circular_links_reihana.circular_title": "عروض خاصة",
+                      "circular_links_reihana.circular_text": "40 منتج",
+                      "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1506629905607-c52b1f6b5b6f"
+                    },
+                    {
+                      "circular_links_reihana.circular_title": "باكيجات التوفير",
+                      "circular_links_reihana.circular_text": "80 منتج",
+                      "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f"
+                    },
+                    {
+                      "circular_links_reihana.circular_title": "أقل من 500 ريال",
+                      "circular_links_reihana.circular_text": "70 منتج",
+                      "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1483985988355-763728e1935b"
+                    },
+                    {
+                      "circular_links_reihana.circular_title": "أقل من 800 ريال",
+                      "circular_links_reihana.circular_text": "50 منتج",
+                      "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
+                    },
+                    {
+                      "circular_links_reihana.circular_title": "أقل من 1000 ريال",
+                      "circular_links_reihana.circular_text": "150 منتج",
+                      "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c"
+                    }
+                  ],
+                  "fields": [
+                    {
+                      "id": "circular_links_reihana.circular_image",
+                      "key": "7a46b73c-3f90-4c61-945c-cf9424aeb078",
+                      "type": "string",
+                      "format": "image",
+                      "label": "الصوره",
+                      "description": "المقاس المقترح: 450 عرض و 450 ارتفاع او اي مقاس مستطيل",
+                      "labelHTML": null,
+                      "placeholder": "e.g. https://hostname.com/image.png",
+                      "icon": "sicon-image",
+                      "value": null,
+                      "required": true
+                    },
+                    {
+                      "type": "string",
+                      "icon": "sicon-format-text-alt",
+                      "multilanguage": true,
+                      "id": "circular_links_reihana.circular_title",
+                      "value": "عنوان الميزة",
+                      "required": false,
+                      "format": "text",
+                      "label": "أدخل عنوان الميزة",
+                      "description": " يظهر عنوان الميزة في سطر واحد ",
+                      "placeholder": "أدخل عنوان للرابط هنا...",
+                      "minLength": 0,
+                      "maxLength": "50",
+                      "key": "55936fd9-05bc-4509-b5ba-ba59f56769f9"
+                    },
+                    {
+                      "id": "circular_links_reihana.circular_text",
+                      "key": "22b16133-5c01-461a-9cf3-72646a2dc1a9",
+                      "type": "string",
+                      "format": "text",
+                      "label": "عنوان فرعي",
+                      "description": " يظهر العنوان فرعي الميزة في سطر واحد ",
+                      "labelHTML": null,
+                      "placeholder": "150 منتج",
+                      "icon": "sicon-format-text-alt",
+                      "value": "150 منتج",
+                      "multilanguage": true,
+                      "required": false,
+                      "minLength": 0,
+                      "maxLength": 30
+                    },
+                    {
+                      "type": "items",
+                      "icon": "sicon-link",
+                      "label": "الرابط",
+                      "id": "circular_links_reihana.circular_url",
+                      "value": null,
+                      "description": null,
+                      "required": false,
+                      "format": "variable-list",
+                      "searchable": true,
+                      "source": "offers_link",
+                      "sources": [
                         {
-                            "circular_links_reihana.circular_title": "الاكثر مبيعا",
-                            "circular_links_reihana.circular_text": "90 منتج",
-                            "circular_links_reihana.circular_image": "https://img.freepik.com/free-photo/happy-baby-posing_1328-3222.jpg"
+                          "label": "منتج",
+                          "key": "products",
+                          "value": "products"
                         },
                         {
-                            "circular_links_reihana.circular_title": "احدث المنتجات",
-                            "circular_links_reihana.circular_text": "300 منتج",
-                            "circular_links_reihana.circular_image": "https://img.freepik.com/free-photo/man-portrait_1296-626.jpg"
+                          "label": "تصنيف",
+                          "key": "categories",
+                          "value": "categories"
                         },
                         {
-                            "circular_links_reihana.circular_title": "وصل حديثا",
-                            "circular_links_reihana.circular_text": "40 منتج",
-                            "circular_links_reihana.circular_image": "https://img.freepik.com/free-photo/girl-sunglasses-posing-with-shopping-bags_23-2147825644.jpg"
+                          "label": "ماركة تجارية",
+                          "key": "brands",
+                          "value": "brands"
                         },
                         {
-                            "circular_links_reihana.circular_title": "تخفيضات",
-                            "circular_links_reihana.circular_text": "200 منتج",
-                            "circular_links_reihana.circular_image": "https://img.freepik.com/free-photo/happy-baby-posing_1328-3222.jpg"
+                          "label": "صفحة تعريفية",
+                          "key": "pages",
+                          "value": "pages"
                         },
                         {
-                            "circular_links_reihana.circular_title": "عروض خاصة",
-                            "circular_links_reihana.circular_text": "40 منتج",
-                            "circular_links_reihana.circular_image": "https://img.freepik.com/free-photo/man-portrait_1296-626.jpg"
+                          "label": "مقالة",
+                          "key": "blog_articles",
+                          "value": "blog_articles"
                         },
                         {
-                            "circular_links_reihana.circular_title": "باكيجات التوفير",
-                            "circular_links_reihana.circular_text": "80 منتج",
-                            "circular_links_reihana.circular_image": "https://img.freepik.com/free-photo/girl-sunglasses-posing-with-shopping-bags_23-2147825644.jpg"
+                          "label": "تصنيف ضمن المدونة",
+                          "key": "blog_categories",
+                          "value": "blog_categories"
                         },
                         {
-                            "circular_links_reihana.circular_title": "اقل من 500 ريال",
-                            "circular_links_reihana.circular_text": "70 منتج",
-                            "circular_links_reihana.circular_image": "https://img.freepik.com/free-photo/happy-baby-posing_1328-3222.jpg"
+                          "label": "التخفيضات",
+                          "key": "offers_link",
+                          "value": "offers_link"
                         },
                         {
-                            "circular_links_reihana.circular_title": "اقل من 800 ريال",
-                            "circular_links_reihana.circular_text": "50 منتج",
-                            "circular_links_reihana.circular_image": "https://img.freepik.com/free-photo/man-portrait_1296-626.jpg"
+                          "label": "الماركات التجارية",
+                          "key": "brands_link",
+                          "value": "brands_link"
                         },
                         {
-                            "circular_links_reihana.circular_title": "اقل من 1000 ريال",
-                            "circular_links_reihana.circular_text": "150 منتج",
-                            "circular_links_reihana.circular_image": "https://img.freepik.com/free-photo/girl-sunglasses-posing-with-shopping-bags_23-2147825644.jpg"
+                          "label": "المدونة",
+                          "key": "blog_link",
+                          "value": "blog_link"
+                        },
+                        {
+                          "label": "رابط خارجي",
+                          "key": "custom",
+                          "value": "custom"
                         }
-                    ],
-                    "fields": [
-                        {
-                            "id": "circular_links_reihana.circular_image",
-                            "key": "7a46b73c-3f90-4c61-945c-cf9424aeb078",
-                            "type": "string",
-                            "format": "image",
-                            "label": "الصوره",
-                            "description": "المقاس المقترح: 450 عرض و 450 ارتفاع او اي مقاس مستطيل",
-                            "labelHTML": null,
-                            "placeholder": "e.g. https://hostname.com/image.png",
-                            "icon": "sicon-image",
-                            "value": null,
-                            "required": true
-                        },
-                        {
-                            "type": "string",
-                            "icon": "sicon-format-text-alt",
-                            "multilanguage": true,
-                            "id": "circular_links_reihana.circular_title",
-                            "value": "عنوان الميزة",
-                            "required": false,
-                            "format": "text",
-                            "label": "أدخل عنوان الميزة",
-                            "description": " يظهر عنوان الميزة في سطر واحد ",
-                            "placeholder": "أدخل عنوان للرابط هنا...",
-                            "minLength": 0,
-                            "maxLength": "50",
-                            "key": "55936fd9-05bc-4509-b5ba-ba59f56769f9"
-                        },
-                        {
-                            "id": "circular_links_reihana.circular_text",
-                            "key": "22b16133-5c01-461a-9cf3-72646a2dc1a9",
-                            "type": "string",
-                            "format": "text",
-                            "label": "عنوان فرعي",
-                            "description": " يظهر العنوان فرعي الميزة في سطر واحد ",
-                            "labelHTML": null,
-                            "placeholder": "150 منتج",
-                            "icon": "sicon-format-text-alt",
-                            "value": "150 منتج",
-                            "multilanguage": true,
-                            "required": false,
-                            "minLength": 0,
-                            "maxLength": 30
-                        },
-                        {
-                            "type": "items",
-                            "icon": "sicon-link",
-                            "label": "الرابط",
-                            "id": "circular_links_reihana.circular_url",
-                            "value": null,
-                            "description": null,
-                            "required": false,
-                            "format": "variable-list",
-                            "searchable": true,
-                            "source": "offers_link",
-                            "sources": [
-                                {
-                                    "label": "منتج",
-                                    "key": "products",
-                                    "value": "products"
-                                },
-                                {
-                                    "label": "تصنيف",
-                                    "key": "categories",
-                                    "value": "categories"
-                                },
-                                {
-                                    "label": "ماركة تجارية",
-                                    "key": "brands",
-                                    "value": "brands"
-                                },
-                                {
-                                    "label": "صفحة تعريفية",
-                                    "key": "pages",
-                                    "value": "pages"
-                                },
-                                {
-                                    "label": "مقالة",
-                                    "key": "blog_articles",
-                                    "value": "blog_articles"
-                                },
-                                {
-                                    "label": "تصنيف ضمن المدونة",
-                                    "key": "blog_categories",
-                                    "value": "blog_categories"
-                                },
-                                {
-                                    "label": "التخفيضات",
-                                    "key": "offers_link",
-                                    "value": "offers_link"
-                                },
-                                {
-                                    "label": "الماركات التجارية",
-                                    "key": "brands_link",
-                                    "value": "brands_link"
-                                },
-                                {
-                                    "label": "المدونة",
-                                    "key": "blog_link",
-                                    "value": "blog_link"
-                                },
-                                {
-                                    "label": "رابط خارجي",
-                                    "key": "custom",
-                                    "value": "custom"
-                                }
-                            ],
-                            "key": "cfe587fc-b80c-4366-bdef-bac61992822a"
-                        }
-                    ],
-                    "key": "4a0a29f8-d670-487a-a5d8-97266d93e6b8"
+                      ],
+                      "key": "cfe587fc-b80c-4366-bdef-bac61992822a"
+                    }
+                  ],
+                  "key": "4a0a29f8-d670-487a-a5d8-97266d93e6b8"
                 }
             ]
         },
@@ -1180,16 +1180,28 @@
               "maxLength": 20,
               "value": [
                 {
-                  "banners_double_image": "https://img.freepik.com/free-photo/fashionable-woman-pink-coat-black-hat-posing_273443-2426.jpg"
+                  "banners_double_image": "https://images.unsplash.com/photo-1483985988355-763728e1935b"
                 },
                 {
-                  "banners_double_image": "https://img.freepik.com/free-photo/pretty-woman-coat-looking-camera_23-2148316412.jpg"
+                  "banners_double_image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c"
                 },
                 {
-                  "banners_double_image": "https://img.freepik.com/free-photo/lady-working-as-fashion-designer-creating-new-dress_197531-24020.jpg"
+                  "banners_double_image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
                 },
                 {
-                  "banners_double_image": "https://img.freepik.com/free-photo/two-fashionable-young-women-casual-trendy-spring-coat-boots-with-heels-black-hat-stylish-handbag_273443-2436.jpg"
+                  "banners_double_image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f"
+                },
+                {
+                  "banners_double_image": "https://images.unsplash.com/photo-1445205170230-053b83016050"
+                },
+                {
+                  "banners_double_image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d"
+                },
+                {
+                  "banners_double_image": "https://images.unsplash.com/photo-1509631179647-0177331693ae"
+                },
+                {
+                  "banners_double_image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518"
                 }
               ],
               "fields": [
@@ -1283,22 +1295,31 @@
               "maxLength": 21,
               "value": [
                 {
-                  "banners_triple_image": "https://img.freepik.com/free-photo/fashionable-woman-pink-coat-black-hat-posing_273443-2426.jpg"
+                  "banners_triple_image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
                 },
                 {
-                  "banners_triple_image": "https://img.freepik.com/free-photo/pretty-woman-coat-looking-camera_23-2148316412.jpg"
+                  "banners_triple_image": "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6"
                 },
                 {
-                  "banners_triple_image": "https://img.freepik.com/free-photo/lady-working-as-fashion-designer-creating-new-dress_197531-24020.jpg"
+                  "banners_triple_image": "https://images.unsplash.com/photo-1495385794356-15371f348c31"
                 },
                 {
-                  "banners_triple_image": "https://img.freepik.com/free-photo/two-fashionable-young-women-casual-trendy-spring-coat-boots-with-heels-black-hat-stylish-handbag_273443-2436.jpg"
+                  "banners_triple_image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f"
                 },
                 {
-                  "banners_triple_image": "https://img.freepik.com/free-photo/beautiful-young-woman-with-shopping-bags_23-2148316136.jpg"
+                  "banners_triple_image": "https://images.unsplash.com/photo-1506629905607-c52b1f6b5b6f"
                 },
                 {
-                  "banners_triple_image": "https://img.freepik.com/free-photo/stylish-woman-leather-coat-black-hat-demonstrate-winter-fashion-trends-white_273443-4940.jpg"
+                  "banners_triple_image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f"
+                },
+                {
+                  "banners_triple_image": "https://images.unsplash.com/photo-1483985988355-763728e1935b"
+                },
+                {
+                  "banners_triple_image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
+                },
+                {
+                  "banners_triple_image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c"
                 }
               ],
               "fields": [
