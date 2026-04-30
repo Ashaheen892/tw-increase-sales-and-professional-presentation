@@ -164,7 +164,7 @@ export default class LinksSquareRayhana extends LitElement {
               const image = item.square_image;
               const title = item.square_title;
               const text = item.square_text;
-              const url = item.square_url?.value || '#';
+              const url = item.square_url || '#';
 
               return html`
                 <a href="${url}" class="min-link-square__item">

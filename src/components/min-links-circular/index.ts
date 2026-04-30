@@ -173,7 +173,7 @@ export default class LinksCircularRayhana extends LitElement {
               const image = item.circular_image;
               const title = item.circular_title;
               const text = item.circular_text;
-              const url = item.circular_url?.value || '#';
+              const url = item.circular_url || '#';
 
               return html`
                 <a href="${url}" class="min-link-circular__item">

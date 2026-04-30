@@ -89,7 +89,7 @@ export default class BannerTripleSaji extends LitElement {
               const item = this.normalizeItem(rawItem);
 
               const image = item.banners_triple_image;
-              const url = item.banners_triple_url?.value || '#';
+              const url = item.banners_triple_url || '#';
 
               return html`
                 <a href="${url}" class="triple-banner__item">

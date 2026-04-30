@@ -1,11 +1,11 @@
-import { LitElement as p, html as r } from "lit";
-import { property as k } from "lit/decorators.js";
-var g = Object.defineProperty, q = (l, t, e, n) => {
+import { LitElement as u, html as r } from "lit";
+import { property as p } from "lit/decorators.js";
+var k = Object.defineProperty, g = (l, t, e, n) => {
   for (var i = void 0, s = l.length - 1, a; s >= 0; s--)
     (a = l[s]) && (i = a(t, e, i) || i);
-  return i && g(t, e, i), i;
+  return i && k(t, e, i), i;
 };
-class _ extends p {
+class _ extends u {
   createRenderRoot() {
     return this;
   }
@@ -147,14 +147,13 @@ class _ extends p {
           <div class="min-link-square__grid">
 
             ${t.map((s) => {
-      var c;
-      const a = this.normalizeItem(s), d = a.square_image, o = a.square_title, m = a.square_text, u = ((c = a.square_url) == null ? void 0 : c.value) || "#";
+      const a = this.normalizeItem(s), c = a.square_image, o = a.square_title, m = a.square_text, d = a.square_url || "#";
       return r`
-                <a href="${u}" class="min-link-square__item">
+                <a href="${d}" class="min-link-square__item">
 
                   <div class="min-link-square__image-wrapper">
                     <div class="min-link-square__image-inner">
-                      <img src="${d}" loading="lazy" />
+                      <img src="${c}" loading="lazy" />
                     </div>
                   </div>
 
@@ -176,8 +175,8 @@ class _ extends p {
     `;
   }
 }
-q([
-  k({ type: Object })
+g([
+  p({ type: Object })
 ], _.prototype, "config");
 typeof _ < "u" && _.registerSallaComponent("salla-min-links-square");
 export {

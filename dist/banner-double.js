@@ -1,11 +1,11 @@
-import { LitElement as b, html as l } from "lit";
-import { property as u } from "lit/decorators.js";
-var m = Object.defineProperty, c = (i, n, r, a) => {
+import { LitElement as s, html as l } from "lit";
+import { property as b } from "lit/decorators.js";
+var u = Object.defineProperty, m = (i, n, r, a) => {
   for (var e = void 0, o = i.length - 1, t; o >= 0; o--)
     (t = i[o]) && (e = t(n, r, e) || e);
-  return e && m(n, r, e), e;
+  return e && u(n, r, e), e;
 };
-class d extends b {
+class d extends s {
   // مهم مع سلة (بدون Shadow DOM)
   createRenderRoot() {
     return this;
@@ -73,8 +73,7 @@ class d extends b {
           <div class="double-banner__grid">
 
             ${n.map((a) => {
-      var s;
-      const e = this.normalizeItem(a), o = e.banners_double_image, t = ((s = e.banners_double_url) == null ? void 0 : s.value) || "#";
+      const e = this.normalizeItem(a), o = e.banners_double_image, t = e.banners_double_url || "#";
       return l`
                 <a href="${t}" class="double-banner__item">
                   <img 
@@ -94,8 +93,8 @@ class d extends b {
     ` : l``;
   }
 }
-c([
-  u({ type: Object })
+m([
+  b({ type: Object })
 ], d.prototype, "config");
 typeof d < "u" && d.registerSallaComponent("salla-banner-double");
 export {

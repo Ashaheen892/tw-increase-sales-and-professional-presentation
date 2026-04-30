@@ -1,11 +1,11 @@
-import { LitElement as d, html as p } from "lit";
-import { property as m } from "lit/decorators.js";
-var c = Object.defineProperty, _ = (l, n, r, i) => {
+import { LitElement as s, html as p } from "lit";
+import { property as d } from "lit/decorators.js";
+var m = Object.defineProperty, c = (l, n, r, i) => {
   for (var e = void 0, t = l.length - 1, a; t >= 0; t--)
     (a = l[t]) && (e = a(n, r, e) || e);
-  return e && c(n, r, e), e;
+  return e && m(n, r, e), e;
 };
-class o extends d {
+class o extends s {
   // مهم مع سلة (بدون Shadow DOM)
   createRenderRoot() {
     return this;
@@ -79,8 +79,7 @@ class o extends d {
           <div class="triple-banner__grid">
 
             ${n.map((i) => {
-      var s;
-      const e = this.normalizeItem(i), t = e.banners_triple_image, a = ((s = e.banners_triple_url) == null ? void 0 : s.value) || "#";
+      const e = this.normalizeItem(i), t = e.banners_triple_image, a = e.banners_triple_url || "#";
       return p`
                 <a href="${a}" class="triple-banner__item">
 
@@ -104,8 +103,8 @@ class o extends d {
     ` : p``;
   }
 }
-_([
-  m({ type: Object })
+c([
+  d({ type: Object })
 ], o.prototype, "config");
 typeof o < "u" && o.registerSallaComponent("salla-banner-triple");
 export {

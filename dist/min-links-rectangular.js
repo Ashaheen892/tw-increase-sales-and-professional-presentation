@@ -1,11 +1,11 @@
-import { LitElement as d, html as t } from "lit";
-import { property as u } from "lit/decorators.js";
-var p = Object.defineProperty, k = (l, i, a, c) => {
-  for (var n = void 0, r = l.length - 1, e; r >= 0; r--)
-    (e = l[r]) && (n = e(i, a, n) || n);
-  return n && p(i, a, n), n;
+import { LitElement as _, html as t } from "lit";
+import { property as d } from "lit/decorators.js";
+var u = Object.defineProperty, p = (l, i, r, c) => {
+  for (var n = void 0, a = l.length - 1, e; a >= 0; a--)
+    (e = l[a]) && (n = e(i, r, n) || n);
+  return n && u(i, r, n), n;
 };
-class o extends d {
+class o extends _ {
   createRenderRoot() {
     return this;
   }
@@ -14,7 +14,7 @@ class o extends d {
     return ((i = this.config) == null ? void 0 : i.rectangular_links) || [];
   }
   render() {
-    var a, c;
+    var r, c;
     const i = this.getItems();
     return i.length ? t`
       <style>
@@ -137,7 +137,7 @@ class o extends d {
       <section class="min-link-rectangular">
         <div class="min-link-rectangular__container">
 
-          ${(a = this.config) != null && a.rectangular_links_title ? t`<h2 class="min-link-rectangular__title">
+          ${(r = this.config) != null && r.rectangular_links_title ? t`<h2 class="min-link-rectangular__title">
                 ${this.config.rectangular_links_title}
               </h2>` : ""}
 
@@ -148,16 +148,16 @@ class o extends d {
           <div class="min-link-rectangular__grid">
 
             ${i.map((n) => {
-      var s, m;
-      const r = n.rectangular_image, e = n.rectangular_title, g = n.rectangular_text, _ = ((s = n.rectangular_url) == null ? void 0 : s.value) || "#";
+      var s;
+      const a = n.rectangular_image, e = n.rectangular_title, g = n.rectangular_text, m = n.rectangular_url || "#";
       return t`
-                <a href="${_}" class="min-link-rectangular__item">
+                <a href="${m}" class="min-link-rectangular__item">
 
                   <div class="min-link-rectangular__image-wrapper 
-                    ${(m = this.config) != null && m.rectangular_links_rounded ? "min-link-rectangular__image-wrapper--rounded" : ""}">
+                    ${(s = this.config) != null && s.rectangular_links_rounded ? "min-link-rectangular__image-wrapper--rounded" : ""}">
                     
                     <div class="min-link-rectangular__image-inner">
-                      <img src="${r}" loading="lazy" />
+                      <img src="${a}" loading="lazy" />
                     </div>
                   </div>
 
@@ -179,8 +179,8 @@ class o extends d {
     ` : t`<div style="padding:20px">No items</div>`;
   }
 }
-k([
-  u({ type: Object })
+p([
+  d({ type: Object })
 ], o.prototype, "config");
 typeof o < "u" && o.registerSallaComponent("salla-min-links-rectangular");
 export {

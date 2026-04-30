@@ -83,7 +83,7 @@ export default class BannerDoubleSaji extends LitElement {
               const item = this.normalizeItem(rawItem);
 
               const image = item.banners_double_image;
-              const url = item.banners_double_url?.value || '#';
+              const url = item.banners_double_url || '#';
               return html`
                 <a href="${url}" class="double-banner__item">
                   <img 

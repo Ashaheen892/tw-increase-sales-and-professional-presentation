@@ -162,7 +162,7 @@ export default class LinksRectangular extends LitElement {
               const image = item.rectangular_image;
               const title = item.rectangular_title;
               const text = item.rectangular_text;
-              const url = item.rectangular_url?.value || '#';
+              const url = item.rectangular_url || '#';
 
               return html`
                 <a href="${url}" class="min-link-rectangular__item">

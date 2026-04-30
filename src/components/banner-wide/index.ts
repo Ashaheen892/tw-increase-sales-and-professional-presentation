@@ -26,7 +26,7 @@ export default class BannerWideSaji extends LitElement {
   render() {
     const data = this.normalizeData(this.config || {});
     const imageUrl = data.banner_wide_image || '';
-    const targetUrl = data.banner_wide_url?.value || '#';
+    const targetUrl = data.banner_wide_url || '#';
 
     if (!imageUrl) return html``;
 

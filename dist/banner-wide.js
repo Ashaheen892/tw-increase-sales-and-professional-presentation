@@ -1,27 +1,26 @@
-import { LitElement as s, html as l } from "lit";
+import { LitElement as l, html as s } from "lit";
 import { property as c } from "lit/decorators.js";
-var p = Object.defineProperty, m = (a, n, r, i) => {
-  for (var e = void 0, t = a.length - 1, d; t >= 0; t--)
-    (d = a[t]) && (e = d(n, r, e) || e);
-  return e && p(n, r, e), e;
+var p = Object.defineProperty, m = (a, e, n, i) => {
+  for (var r = void 0, t = a.length - 1, d; t >= 0; t--)
+    (d = a[t]) && (r = d(e, n, r) || r);
+  return r && p(e, n, r), r;
 };
-class o extends s {
+class o extends l {
   // مهم مع سلة (بدون Shadow DOM)
   createRenderRoot() {
     return this;
   }
   // تنظيف المفاتيح
-  normalizeData(n) {
-    const r = {};
-    return n && Object.keys(n).forEach((i) => {
-      const e = i.includes(".") ? i.split(".").pop() : i;
-      r[e] = n[i];
-    }), r;
+  normalizeData(e) {
+    const n = {};
+    return e && Object.keys(e).forEach((i) => {
+      const r = i.includes(".") ? i.split(".").pop() : i;
+      n[r] = e[i];
+    }), n;
   }
   render() {
-    var e;
-    const n = this.normalizeData(this.config || {}), r = n.banner_wide_image || "", i = ((e = n.banner_wide_url) == null ? void 0 : e.value) || "#";
-    return r ? l`
+    const e = this.normalizeData(this.config || {}), n = e.banner_wide_image || "", i = e.banner_wide_url || "#";
+    return n ? s`
       <style>
         .wide-banner {
           margin: 32px 0;
@@ -52,7 +51,7 @@ class o extends s {
         <div class="wide-banner__container">
           <a href="${i}" class="wide-banner__link">
             <img 
-              src="${r}" 
+              src="${n}" 
               alt="Banner"
               loading="lazy"
               class="wide-banner__image"
@@ -60,7 +59,7 @@ class o extends s {
           </a>
         </div>
       </section>
-    ` : l``;
+    ` : s``;
   }
 }
 m([

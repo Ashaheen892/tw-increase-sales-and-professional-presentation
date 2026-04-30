@@ -1,11 +1,11 @@
-import { LitElement as p, html as c } from "lit";
-import { property as g } from "lit/decorators.js";
-var k = Object.defineProperty, f = (a, n, r, t) => {
+import { LitElement as u, html as c } from "lit";
+import { property as p } from "lit/decorators.js";
+var g = Object.defineProperty, k = (a, n, r, t) => {
   for (var i = void 0, e = a.length - 1, l; e >= 0; e--)
     (l = a[e]) && (i = l(n, r, i) || i);
-  return i && k(n, r, i), i;
+  return i && g(n, r, i), i;
 };
-class m extends p {
+class m extends u {
   createRenderRoot() {
     return this;
   }
@@ -156,14 +156,13 @@ class m extends p {
           <div class="min-link-circular__grid">
 
             ${n.map((e) => {
-      var _;
-      const l = this.normalizeItem(e), d = l.circular_image, o = l.circular_title, s = l.circular_text, u = ((_ = l.circular_url) == null ? void 0 : _.value) || "#";
+      const l = this.normalizeItem(e), _ = l.circular_image, o = l.circular_title, s = l.circular_text, d = l.circular_url || "#";
       return c`
-                <a href="${u}" class="min-link-circular__item">
+                <a href="${d}" class="min-link-circular__item">
 
                   <div class="min-link-circular__image-wrapper">
                     <div class="min-link-circular__image-inner">
-                      <img src="${d}" loading="lazy" />
+                      <img src="${_}" loading="lazy" />
                     </div>
                   </div>
 
@@ -185,8 +184,8 @@ class m extends p {
     `;
   }
 }
-f([
-  g({ type: Object })
+k([
+  p({ type: Object })
 ], m.prototype, "config");
 typeof m < "u" && m.registerSallaComponent("salla-min-links-circular");
 export {
