@@ -449,7 +449,7 @@
         },
         {
             "key": "e09f99f6-77ce-4297-9754-ce09ee8f52a4",
-            "title": "روابط مستطيلة",
+            "title": "تصنيفات مستطيلة",
             "name": "min-links-rectangular",
             "icon": "sicon-braille-hand",
             "image": "https://cdn.imgchest.com/files/c0ff97e09776.png",
@@ -669,7 +669,7 @@
         },
         {
             "key": "cc04e424-74d2-43c5-94bd-ed158f0adec7",
-            "title": "روابط مربعة",
+            "title": "تصنيفات مربعة",
             "name": "min-links-square",
             "icon": "sicon-braille-hand",
             "image": "https://cdn.imgchest.com/files/15d78986979f.png",
@@ -876,7 +876,7 @@
         },
         {
             "key": "3cccc8b7-6d22-4edb-8aed-782446659314",
-            "title": "روابط دائرية",
+            "title": "تصنيفات دائرية",
             "name": "min-links-circular",
             "icon": "sicon-braille-hand",
             "image": "https://cdn.imgchest.com/files/304b1b179637.png",
@@ -1084,7 +1084,7 @@
         },
         {
             "key": "cbcf4854-78d0-42fa-ad2f-9f7900126133",
-            "title": "بنر عريض",
+            "title": "بنر عريض مميز",
             "name": "banner-wide",
             "icon": "sicon-image",
             "image": "https://cdn.imgchest.com/files/98a867d9a8ad.png",
@@ -1167,7 +1167,7 @@
         },
         {
           "key": "6eb3c632-5746-4ff1-8df8-7a3e4262a33c",
-          "title": "بنر مزدوج",
+          "title": "البنرات الثنائية",
           "name": "banner-double",
           "image": "https://cdn.imgchest.com/files/e115fc506cba.png",
           "preview_image": "https://cdn.imgchest.com/files/e115fc506cba.png",
@@ -1282,7 +1282,7 @@
         },
         {
           "key": "80be7093-881f-4fe7-a706-9df3559203c5",
-          "title": "بنر ثلاثي",
+          "title": "البنرات الثلاثية",
           "name": "banner-triple",
           "icon": "sicon-image",
           "image": "https://cdn.imgchest.com/files/074302cf975d.png",
