@@ -1,5 +1,6 @@
 import { css, html, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js'; // لإظهار iframe الخام إذا لزم
 
 export default class OurBranches extends LitElement {
   @property({ type: Object })
@@ -12,31 +13,47 @@ export default class OurBranches extends LitElement {
     return this.config?.branches || [];
   }
 
-  getMapUrl(url: string) {
-    if (!url) return '';
+  // دالة ذكية: إذا كان الإدخال iframe كامل، اعرضه مباشرة (مع إضافة class للتنسيق)
+  // إذا كان رابطاً، اعرضه في iframe جديد
+  renderMapContent(raw: string) {
+    if (!raw) return html`<div class="branches__error">⚠️ لا يوجد رابط خريطة</div>`;
 
-    if (url.includes('src="')) {
-      return url.split('src="')[1]?.split('"')[0];
+    // إذا كان النص يحتوي على iframe، نستخدم unsafeHTML لعرضه مباشرة
+    if (raw.includes('<iframe')) {
+      // نضيف class="branches__iframe" إلى iframe الموجود إذا لم يكن موجوداً
+      let iframeHtml = raw;
+      if (!raw.includes('class="branches__iframe"')) {
+        iframeHtml = raw.replace(/<iframe/, '<iframe class="branches__iframe"');
+      }
+      return html`${unsafeHTML(iframeHtml)}`;
     }
 
-    return url;
+    // إذا كان رابطاً مباشراً (يحتوي على google.com/maps)
+    if (raw.includes('google.com/maps')) {
+      return html`<iframe class="branches__iframe" src="${raw}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
+    }
+
+    // محاولة استخراج src من نص عادي (كحل أخير)
+    const srcMatch = raw.match(/src=["']([^"']+)["']/);
+    if (srcMatch && srcMatch[1]) {
+      return html`<iframe class="branches__iframe" src="${srcMatch[1]}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
+    }
+
+    return html`<div class="branches__error">⚠️ رابط الخريطة غير صالح</div>`;
   }
 
   static styles = css`
     :host {
       display: block;
     }
-
     .branches {
       margin: 40px 0;
     }
-
     .branches__container {
       max-width: 1440px;
       margin: 0 auto;
       padding: 0 16px;
     }
-
     .branches__title {
       text-align: center;
       font-size: 24px;
@@ -44,13 +61,11 @@ export default class OurBranches extends LitElement {
       margin-bottom: 10px;
       color: #000;
     }
-
     .branches__subtitle {
       text-align: center;
       color: #666;
       margin-bottom: 20px;
     }
-
     .branches__tabs {
       display: flex;
       gap: 10px;
@@ -58,7 +73,6 @@ export default class OurBranches extends LitElement {
       justify-content: center;
       margin-bottom: 20px;
     }
-
     .branches__tab {
       padding: 8px 16px;
       border: 1px solid var(--color-primary);
@@ -69,52 +83,49 @@ export default class OurBranches extends LitElement {
       font-size: 14px;
       transition: all 0.2s ease;
     }
-
     .branches__tab--active {
       background: var(--color-primary);
       color: #fff;
     }
-
     .branches__map {
       width: 100%;
       overflow: hidden;
       border-radius: 10px;
     }
-
     .branches__iframe {
       width: 100%;
       height: 400px;
       border: none;
       display: block;
     }
-
     .branches__map--gray .branches__iframe {
       filter: grayscale(1);
     }
-
-    /* ================= DARK MODE ================= */
-
+    .branches__error {
+      text-align: center;
+      padding: 40px 20px;
+      background: #f5f5f5;
+      color: #d32f2f;
+      border-radius: 10px;
+      font-size: 14px;
+    }
     :host-context([data-theme="dark"]) .branches__title {
       color: #fff;
     }
-
     :host-context([data-theme="dark"]) .branches__subtitle {
       color: #aaa;
     }
-
     :host-context([data-theme="dark"]) .branches__tab {
       border-color: var(--color-primary);
       color: var(--color-primary);
-      background: transparent;
     }
-
     :host-context([data-theme="dark"]) .branches__tab--active {
       background: var(--color-primary);
       color: #fff;
     }
-
-    :host-context([data-theme="dark"]) .branches__map {
-      background: #111;
+    :host-context([data-theme="dark"]) .branches__error {
+      background: #222;
+      color: #ff6b6b;
     }
   `;
 
@@ -124,9 +135,7 @@ export default class OurBranches extends LitElement {
     return html`
       <section class="branches">
         <div class="branches__container">
-
           ${this.config?.title ? html`<div class="branches__title">${this.config.title}</div>` : ''}
-
           ${this.config?.subtitle ? html`<div class="branches__subtitle">${this.config.subtitle}</div>` : ''}
 
           <div class="branches__tabs">
@@ -143,22 +152,13 @@ export default class OurBranches extends LitElement {
           </div>
 
           ${branches.map((b: any, i: number) => {
-            const url = this.getMapUrl(b.map_code_url);
-
-            return this.activeTab === i
-              ? html`
-                  <div class="branches__map ${b.map__gray ? 'branches__map--gray' : ''}">
-                    <iframe
-                      class="branches__iframe"
-                      src="${url}"
-                      loading="lazy"
-                      referrerpolicy="no-referrer-when-downgrade"
-                    ></iframe>
-                  </div>
-                `
-              : '';
+            if (this.activeTab !== i) return '';
+            return html`
+              <div class="branches__map ${b.map__gray ? 'branches__map--gray' : ''}">
+                ${this.renderMapContent(b.map_code_url)}
+              </div>
+            `;
           })}
-
         </div>
       </section>
     `;
