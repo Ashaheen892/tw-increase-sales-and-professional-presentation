@@ -310,7 +310,7 @@
         {
           "type": "static",
           "format": "description",
-          "id": "grid-slider-12",
+          "id": "branches-grid-slider-12",
           "value": "<div class='rounded-lg' style='background-color: #21636d; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px; flex-direction: column; gap: 15px;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'> معاينة العنصر</h6><img src='https://cdn.imgchest.com/files/46acqge3jz7.webp'></div>",
           "key": "caa64993-c30c-489b-bfc9-aad26ddd683b"
         },
@@ -360,7 +360,7 @@
           "icon": "sicon-list-add",
           "fields": [
             {
-              "id": "branches.branch_name",
+              "id": "branch_name",
               "key": "76c8a3e0-e4b9-4fb8-9db3-8c0ad9d69844",
               "type": "string",
               "format": "text",
@@ -376,7 +376,7 @@
               "maxLength": "40"
             },
             {
-              "id": "branches.line",
+              "id": "line",
               "key": "7a381cb3-bc41-4811-ae0c-35f6dcfe7ce2",
               "type": "static",
               "format": "line",
@@ -388,7 +388,7 @@
               "type": "string",
               "icon": "sicon-format-text-alt",
               "label": "رابط الخريطة",
-              "id": "branches.map_code_url",
+              "id": "map_code_url",
               "value": null,
               "required": true,
               "format": "text",
@@ -399,7 +399,7 @@
             {
               "type": "static",
               "format": "description",
-              "id": "branches.static-desc3",
+              "id": "static-desc3",
               "value": "<p >لن تظهر الخريطة في حالة وجود خطأ بالرابط</p>",
               "key": "da1a940c-ef3a-4adc-ac84-1f10846398f8"
             },
@@ -408,7 +408,7 @@
               "icon": "sicon-toggle-off",
               "label": "عرض الخريطة في وضع الوان الأبيض والأسود Gray Mode",
               "description": null,
-              "id": "branches.map__gray",
+              "id": "map__gray",
               "format": "switch",
               "required": false,
               "value": false,
@@ -418,25 +418,25 @@
           ],
           "value": [
             {
-              "branches.branch_name": {
+              "branch_name": {
                 "en": "Riyadh Branch",
                 "ar": "فرع الرياض"
               },
-              "branches.map_code_url": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.913441784419!2d46.67529531500144!3d24.71355198410786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03c8b9a7b8c9%3A0x9c5e5a7c6c8b9a7c!2sRiyadh%20Front%20Mall!5e0!3m2!1sen!2ssa!4v1701305678901' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+              "map_code_url": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.913441784419!2d46.67529531500144!3d24.71355198410786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03c8b9a7b8c9%3A0x9c5e5a7c6c8b9a7c!2sRiyadh%20Front%20Mall!5e0!3m2!1sen!2ssa!4v1701305678901' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>"
             },
             {
-              "branches.branch_name": {
+              "branch_name": {
                 "en": "Jeddah Branch",
                 "ar": "فرع جدة"
               },
-              "branches.map_code_url": "https://maps.app.goo.gl/bs4kXxLbFrKGrDVF7"
+              "map_code_url": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.913441784419!2d46.67529531500144!3d24.71355198410786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03c8b9a7b8c9%3A0x9c5e5a7c6c8b9a7c!2sRiyadh%20Front%20Mall!5e0!3m2!1sen!2ssa!4v1701305678901' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>"
             },
             {
-              "branches.branch_name": {
+              "branch_name": {
                 "en": "Dammam Branch",
                 "ar": "فرع الدمام"
               },
-              "branches.map_code_url": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.913441784419!2d46.67529531500144!3d24.71355198410786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03c8b9a7b8c9%3A0x9c5e5a7c6c8b9a7c!2sRiyadh%20Front%20Mall!5e0!3m2!1sen!2ssa!4v1701305678901' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+              "map_code_url": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.913441784419!2d46.67529531500144!3d24.71355198410786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03c8b9a7b8c9%3A0x9c5e5a7c6c8b9a7c!2sRiyadh%20Front%20Mall!5e0!3m2!1sen!2ssa!4v1701305678901' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>"
             }
           ],
           "required": false,
@@ -468,7 +468,8 @@
           "description": "لإخفاء النص اترك الحقل فارغاً",
           "placeholder": "أدخل العنوان هنا...",
           "minLength": 0,
-          "maxLength": 100
+          "maxLength": 100,
+          "key": "4af90e8f-cac7-4556-b14a-d22de1919d61"
         },
         {
           "id": "rectangular_links_subtitle",
@@ -486,7 +487,8 @@
           "multilanguage": true,
           "required": false,
           "minLength": 0,
-          "maxLength": 300
+          "maxLength": 300,
+          "key": "d1c8b2e7-5c9b-4a3c-9c3a-8f0e5b6a7c9d"
         },
         {
           "id": "rectangular_links_rounded",
@@ -511,108 +513,108 @@
           "item_label": "رابط",
           "value": [
             {
-              "rectangular_links.rectangular_title": {
+              "rectangular_title": {
                 "en": "Best Sellers",
                 "ar": "الأكثر مبيعًا"
               },
-              "rectangular_links.rectangular_text": {
+              "rectangular_text": {
                 "en": "90 Products",
                 "ar": "90 منتج"
               },
-              "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1483985988355-763728e1935b"
+              "rectangular_image": "https://images.unsplash.com/photo-1483985988355-763728e1935b"
             },
             {
-              "rectangular_links.rectangular_title": {
+              "rectangular_title": {
                 "en": "Latest Products",
                 "ar": "أحدث المنتجات"
               },
-              "rectangular_links.rectangular_text": {
+              "rectangular_text": {
                 "en": "300 Products",
                 "ar": "300 منتج"
               },
-              "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c"
+              "rectangular_image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c"
             },
             {
-              "rectangular_links.rectangular_title": {
+              "rectangular_title": {
                 "en": "New Arrivals",
                 "ar": "وصل حديثًا"
               },
-              "rectangular_links.rectangular_text": {
+              "rectangular_text": {
                 "en": "40 Products",
                 "ar": "40 منتج"
               },
-              "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
+              "rectangular_image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
             },
             {
-              "rectangular_links.rectangular_title": {
+              "rectangular_title": {
                 "en": "Discounts",
                 "ar": "تخفيضات"
               },
-              "rectangular_links.rectangular_text": {
+              "rectangular_text": {
                 "en": "200 Products",
                 "ar": "200 منتج"
               },
-              "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2"
+              "rectangular_image": "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2"
             },
             {
-              "rectangular_links.rectangular_title": {
+              "rectangular_title": {
                 "en": "Special Offers",
                 "ar": "عروض خاصة"
               },
-              "rectangular_links.rectangular_text": {
+              "rectangular_text": {
                 "en": "40 Products",
                 "ar": "40 منتج"
               },
-              "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f"
+              "rectangular_image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f"
             },
             {
-              "rectangular_links.rectangular_title": {
+              "rectangular_title": {
                 "en": "Savings Packages",
                 "ar": "باكيجات التوفير"
               },
-              "rectangular_links.rectangular_text": {
+              "rectangular_text": {
                 "en": "80 Products",
                 "ar": "80 منتج"
               },
-              "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1445205170230-053b83016050"
+              "rectangular_image": "https://images.unsplash.com/photo-1445205170230-053b83016050"
             },
             {
-              "rectangular_links.rectangular_title": {
+              "rectangular_title": {
                 "en": "Under 500 SAR",
                 "ar": "أقل من 500 ريال"
               },
-              "rectangular_links.rectangular_text": {
+              "rectangular_text": {
                 "en": "70 Products",
                 "ar": "70 منتج"
               },
-              "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d"
+              "rectangular_image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d"
             },
             {
-              "rectangular_links.rectangular_title": {
+              "rectangular_title": {
                 "en": "Under 800 SAR",
                 "ar": "أقل من 800 ريال"
               },
-              "rectangular_links.rectangular_text": {
+              "rectangular_text": {
                 "en": "50 Products",
                 "ar": "50 منتج"
               },
-              "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1509631179647-0177331693ae"
+              "rectangular_image": "https://images.unsplash.com/photo-1509631179647-0177331693ae"
             },
             {
-              "rectangular_links.rectangular_title": {
+              "rectangular_title": {
                 "en": "Under 1000 SAR",
                 "ar": "أقل من 1000 ريال"
               },
-              "rectangular_links.rectangular_text": {
+              "rectangular_text": {
                 "en": "150 Products",
                 "ar": "150 منتج"
               },
-              "rectangular_links.rectangular_image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518"
+              "rectangular_image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518"
             }
           ],
           "fields": [
             {
-              "id": "rectangular_links.rectangular_image",
+              "id": "rectangular_image",
               "key": "bd010c80-3cad-4b9e-8392-76f9b0cf5b01",
               "type": "string",
               "format": "image",
@@ -628,7 +630,7 @@
               "type": "string",
               "icon": "sicon-format-text-alt",
               "multilanguage": true,
-              "id": "rectangular_links.rectangular_title",
+              "id": "rectangular_title",
               "value": {
                 "en": "Feature Title",
                 "ar": "عنوان الميزة"
@@ -643,7 +645,7 @@
               "key": "e34000e8-d677-4098-9ee3-5bc87d13c0d8"
             },
             {
-              "id": "rectangular_links.rectangular_text",
+              "id": "rectangular_text",
               "key": "40dec06f-56c4-4859-88fc-57dbdf17402e",
               "type": "string",
               "format": "text",
@@ -665,7 +667,7 @@
               "type": "items",
               "icon": "sicon-link",
               "label": "الرابط",
-              "id": "rectangular_links.rectangular_url",
+              "id": "rectangular_url",
               "value": null,
               "description": null,
               "required": false,
@@ -754,7 +756,8 @@
           "description": "لإخفاء النص اترك الحقل فارغاً",
           "placeholder": "أدخل العنوان هنا...",
           "minLength": 0,
-          "maxLength": 100
+          "maxLength": 100,
+          "key": "e3c8b2e7-5c9b-4a3c-9c3a-8f0e5b6a7c9d"
         },
         {
           "id": "square_links_subtitle",
@@ -772,7 +775,8 @@
           "multilanguage": true,
           "required": false,
           "minLength": 0,
-          "maxLength": 300
+          "maxLength": 300,
+          "key": "d3c8b2e7-5c9b-4a3c-9c3a-8f0e5b6a7c9d"
         },
         {
           "id": "square_links_reihana",
@@ -784,108 +788,108 @@
           "item_label": "رابط",
           "value": [
             {
-              "square_links_reihana.square_title": {
+              "square_title": {
                 "en": "Best Sellers",
                 "ar": "الأكثر مبيعًا"
               },
-              "square_links_reihana.square_text": {
+              "square_text": {
                 "en": "90 Products",
                 "ar": "90 منتج"
               },
-              "square_links_reihana.square_image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+              "square_image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
             },
             {
-              "square_links_reihana.square_title": {
+              "square_title": {
                 "en": "New Arrivals",
                 "ar": "أحدث المنتجات"
               },
-              "square_links_reihana.square_text": {
+              "square_text": {
                 "en": "300 Products",
                 "ar": "300 منتج"
               },
-              "square_links_reihana.square_image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+              "square_image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
             },
             {
-              "square_links_reihana.square_title": {
+              "square_title": {
                 "en": "Recently Added",
                 "ar": "وصل حديثًا"
               },
-              "square_links_reihana.square_text": {
+              "square_text": {
                 "en": "40 Products",
                 "ar": "40 منتج"
               },
-              "square_links_reihana.square_image": "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6"
+              "square_image": "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6"
             },
             {
-              "square_links_reihana.square_title": {
+              "square_title": {
                 "en": "Discounts",
                 "ar": "تخفيضات"
               },
-              "square_links_reihana.square_text": {
+              "square_text": {
                 "en": "200 Products",
                 "ar": "200 منتج"
               },
-              "square_links_reihana.square_image": "https://images.unsplash.com/photo-1495385794356-15371f348c31"
+              "square_image": "https://images.unsplash.com/photo-1495385794356-15371f348c31"
             },
             {
-              "square_links_reihana.square_title": {
+              "square_title": {
                 "en": "Special Offers",
                 "ar": "عروض خاصة"
               },
-              "square_links_reihana.square_text": {
+              "square_text": {
                 "en": "40 Products",
                 "ar": "40 منتج"
               },
-              "square_links_reihana.square_image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f"
+              "square_image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f"
             },
             {
-              "square_links_reihana.square_title": {
+              "square_title": {
                 "en": "Saving Bundles",
                 "ar": "باكيجات التوفير"
               },
-              "square_links_reihana.square_text": {
+              "square_text": {
                 "en": "80 Products",
                 "ar": "80 منتج"
               },
-              "square_links_reihana.square_image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
+              "square_image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
             },
             {
-              "square_links_reihana.square_title": {
+              "square_title": {
                 "en": "Under 500 SAR",
                 "ar": "أقل من 500 ريال"
               },
-              "square_links_reihana.square_text": {
+              "square_text": {
                 "en": "70 Products",
                 "ar": "70 منتج"
               },
-              "square_links_reihana.square_image": "https://images.unsplash.com/photo-1483985988355-763728e1935b"
+              "square_image": "https://images.unsplash.com/photo-1483985988355-763728e1935b"
             },
             {
-              "square_links_reihana.square_title": {
+              "square_title": {
                 "en": "Under 800 SAR",
                 "ar": "أقل من 800 ريال"
               },
-              "square_links_reihana.square_text": {
+              "square_text": {
                 "en": "50 Products",
                 "ar": "50 منتج"
               },
-              "square_links_reihana.square_image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+              "square_image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
             },
             {
-              "square_links_reihana.square_title": {
+              "square_title": {
                 "en": "Under 1000 SAR",
                 "ar": "أقل من 1000 ريال"
               },
-              "square_links_reihana.square_text": {
+              "square_text": {
                 "en": "150 Products",
                 "ar": "150 منتج"
               },
-              "square_links_reihana.square_image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f"
+              "square_image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f"
             }
           ],
           "fields": [
             {
-              "id": "square_links_reihana.square_image",
+              "id": "square_image",
               "key": "68fbe447-7887-4d07-9d84-fad0aaea1b17",
               "type": "string",
               "format": "image",
@@ -901,7 +905,7 @@
               "type": "string",
               "icon": "sicon-format-text-alt",
               "multilanguage": true,
-              "id": "square_links_reihana.square_title",
+              "id": "square_title",
               "value": {
                 "en": "Feature Title",
                 "ar": "عنوان الميزة"
@@ -916,7 +920,7 @@
               "key": "bf1815a9-26bf-431a-b091-0f68cc12b232"
             },
             {
-              "id": "square_links_reihana.square_text",
+              "id": "square_text",
               "key": "bb662e5f-3a23-4d1d-952c-405461813193",
               "type": "string",
               "format": "text",
@@ -938,7 +942,7 @@
               "type": "items",
               "icon": "sicon-link",
               "label": "الرابط",
-              "id": "square_links_reihana.square_url",
+              "id": "square_url",
               "value": null,
               "description": null,
               "required": false,
@@ -1028,7 +1032,8 @@
           "description": "لإخفاء النص اترك الحقل فارغاً",
           "placeholder": "أدخل العنوان هنا...",
           "minLength": 0,
-          "maxLength": 100
+          "maxLength": 100,
+          "key": "3af90e8f-cac7-4556-b14a-d22de1919d61"
         },
         {
           "id": "circular_links_subtitle",
@@ -1046,7 +1051,8 @@
           "multilanguage": true,
           "required": false,
           "minLength": 0,
-          "maxLength": 300
+          "maxLength": 300,
+          "key": "5af90e8f-cac7-4556-b14a-d22de1919d61"
         },
         {
           "id": "circular_links_reihana",
@@ -1058,108 +1064,108 @@
           "item_label": "رابط",
           "value": [
             {
-              "circular_links_reihana.circular_title": {
+              "circular_title": {
                 "en": "Best Sellers",
                 "ar": "الأكثر مبيعًا"
               },
-              "circular_links_reihana.circular_text": {
+              "circular_text": {
                 "en": "90 Products",
                 "ar": "90 منتج"
               },
-              "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+              "circular_image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
             },
             {
-              "circular_links_reihana.circular_title": {
+              "circular_title": {
                 "en": "New Arrivals",
                 "ar": "أحدث المنتجات"
               },
-              "circular_links_reihana.circular_text": {
+              "circular_text": {
                 "en": "300 Products",
                 "ar": "300 منتج"
               },
-              "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6"
+              "circular_image": "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6"
             },
             {
-              "circular_links_reihana.circular_title": {
+              "circular_title": {
                 "en": "Recently Added",
                 "ar": "وصل حديثًا"
               },
-              "circular_links_reihana.circular_text": {
+              "circular_text": {
                 "en": "40 Products",
                 "ar": "40 منتج"
               },
-              "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f"
+              "circular_image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f"
             },
             {
-              "circular_links_reihana.circular_title": {
+              "circular_title": {
                 "en": "Discounts",
                 "ar": "تخفيضات"
               },
-              "circular_links_reihana.circular_text": {
+              "circular_text": {
                 "en": "200 Products",
                 "ar": "200 منتج"
               },
-              "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1495385794356-15371f348c31"
+              "circular_image": "https://images.unsplash.com/photo-1495385794356-15371f348c31"
             },
             {
-              "circular_links_reihana.circular_title": {
+              "circular_title": {
                 "en": "Special Offers",
                 "ar": "عروض خاصة"
               },
-              "circular_links_reihana.circular_text": {
+              "circular_text": {
                 "en": "40 Products",
                 "ar": "40 منتج"
               },
-              "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1506629905607-c52b1f6b5b6f"
+              "circular_image": "https://images.unsplash.com/photo-1506629905607-c52b1f6b5b6f"
             },
             {
-              "circular_links_reihana.circular_title": {
+              "circular_title": {
                 "en": "Savings Packages",
                 "ar": "باكيجات التوفير"
               },
-              "circular_links_reihana.circular_text": {
+              "circular_text": {
                 "en": "80 Products",
                 "ar": "80 منتج"
               },
-              "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f"
+              "circular_image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f"
             },
             {
-              "circular_links_reihana.circular_title": {
+              "circular_title": {
                 "en": "Under 500 SAR",
                 "ar": "أقل من 500 ريال"
               },
-              "circular_links_reihana.circular_text": {
+              "circular_text": {
                 "en": "70 Products",
                 "ar": "70 منتج"
               },
-              "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1483985988355-763728e1935b"
+              "circular_image": "https://images.unsplash.com/photo-1483985988355-763728e1935b"
             },
             {
-              "circular_links_reihana.circular_title": {
+              "circular_title": {
                 "en": "Under 800 SAR",
                 "ar": "أقل من 800 ريال"
               },
-              "circular_links_reihana.circular_text": {
+              "circular_text": {
                 "en": "50 Products",
                 "ar": "50 منتج"
               },
-              "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
+              "circular_image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
             },
             {
-              "circular_links_reihana.circular_title": {
+              "circular_title": {
                 "en": "Under 1000 SAR",
                 "ar": "أقل من 1000 ريال"
               },
-              "circular_links_reihana.circular_text": {
+              "circular_text": {
                 "en": "150 Products",
                 "ar": "150 منتج"
               },
-              "circular_links_reihana.circular_image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c"
+              "circular_image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c"
             }
           ],
           "fields": [
             {
-              "id": "circular_links_reihana.circular_image",
+              "id": "circular_image",
               "key": "7a46b73c-3f90-4c61-945c-cf9424aeb078",
               "type": "string",
               "format": "image",
@@ -1175,7 +1181,7 @@
               "type": "string",
               "icon": "sicon-format-text-alt",
               "multilanguage": true,
-              "id": "circular_links_reihana.circular_title",
+              "id": "circular_title",
               "value": {
                 "en": "Feature Title",
                 "ar": "عنوان الميزة"
@@ -1190,7 +1196,7 @@
               "key": "55936fd9-05bc-4509-b5ba-ba59f56769f9"
             },
             {
-              "id": "circular_links_reihana.circular_text",
+              "id": "circular_text",
               "key": "22b16133-5c01-461a-9cf3-72646a2dc1a9",
               "type": "string",
               "format": "text",
@@ -1212,7 +1218,7 @@
               "type": "items",
               "icon": "sicon-link",
               "label": "الرابط",
-              "id": "circular_links_reihana.circular_url",
+              "id": "circular_url",
               "value": null,
               "description": null,
               "required": false,
@@ -1292,7 +1298,8 @@
           "format": "image",
           "label": "صورة البنر",
           "value": "https://img.freepik.com/free-photo/portrait-smiling-beautiful-girl-her-handsome-boyfriend-laughing_158538-4880.jpg",
-          "required": true
+          "required": true,
+          "key": "7f34f4ee-35cc-4cdf-b1d9-bd639a69036f"
         },
         {
           "type": "items",
@@ -1405,7 +1412,8 @@
               "id": "banners_double_image",
               "type": "string",
               "format": "image",
-              "required": true
+              "required": true,
+              "key": "d9c8a1e7-5c9b-4a3c-9c3a-8f0e5b6a7c9d"
             },
             {
               "type": "items",
@@ -1523,7 +1531,8 @@
               "id": "banners_triple_image",
               "type": "string",
               "format": "image",
-              "required": true
+              "required": true,
+              "key": "a77003b1-62a3-4728-a01e-e20e99a8f3f7"
             },
             {
               "type": "items",

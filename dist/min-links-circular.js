@@ -1,25 +1,34 @@
-import { LitElement as u, html as c } from "lit";
-import { property as p } from "lit/decorators.js";
-var g = Object.defineProperty, k = (a, n, r, t) => {
-  for (var i = void 0, e = a.length - 1, l; e >= 0; e--)
-    (l = a[e]) && (i = l(n, r, i) || i);
-  return i && g(n, r, i), i;
+import { LitElement as g, html as l } from "lit";
+import { property as k } from "lit/decorators.js";
+import { l as s } from "./localizedString-WeqHgpra.js";
+var f = Object.defineProperty, x = (m, n, r, t) => {
+  for (var i = void 0, c = m.length - 1, a; c >= 0; c--)
+    (a = m[c]) && (i = a(n, r, i) || i);
+  return i && f(n, r, i), i;
 };
-class m extends u {
+class d extends g {
   createRenderRoot() {
     return this;
   }
   normalizeItem(n) {
     const r = {};
-    return Object.keys(n).forEach((t) => {
+    return Object.keys(n || {}).forEach((t) => {
       const i = t.includes(".") ? t.split(".").pop() : t;
       r[i] = n[t];
     }), r;
   }
   render() {
-    var r, t, i;
-    const n = ((r = this.config) == null ? void 0 : r.circular_links_reihana) || [];
-    return c`
+    var i, c, a;
+    const n = (((i = this.config) == null ? void 0 : i.circular_links_reihana) || []).map(
+      (e) => this.normalizeItem(e)
+    ), r = s(
+      (c = this.config) == null ? void 0 : c.circular_links_title,
+      ""
+    ), t = s(
+      (a = this.config) == null ? void 0 : a.circular_links_subtitle,
+      ""
+    );
+    return l`
       <style>
         .min-link-circular {
           margin: 32px 0;
@@ -119,21 +128,19 @@ class m extends u {
           color: #555;
         }
 
-        /* ================= DARK MODE ================= */
-
-        [data-theme="dark"] .min-link-circular__title {
+        [data-theme='dark'] .min-link-circular__title {
           color: #fff;
         }
 
-        [data-theme="dark"] .min-link-circular__subtitle {
+        [data-theme='dark'] .min-link-circular__subtitle {
           color: #aaa;
         }
 
-        [data-theme="dark"] .min-link-circular__title-text {
+        [data-theme='dark'] .min-link-circular__title-text {
           color: #fff;
         }
 
-        [data-theme="dark"] .min-link-circular__desc {
+        [data-theme='dark'] .min-link-circular__desc {
           color: #bbb;
         }
       </style>
@@ -141,35 +148,56 @@ class m extends u {
       <section class="min-link-circular">
         <div class="min-link-circular__container">
 
-          ${(t = this.config) != null && t.circular_links_title ? c`
+          ${r.trim() ? l`
                 <h2 class="min-link-circular__title">
-                  ${this.config.circular_links_title}
+                  ${r}
                 </h2>
               ` : ""}
 
-          ${(i = this.config) != null && i.circular_links_subtitle ? c`
+          ${t.trim() ? l`
                 <p class="min-link-circular__subtitle">
-                  ${this.config.circular_links_subtitle}
+                  ${t}
                 </p>
               ` : ""}
 
           <div class="min-link-circular__grid">
 
             ${n.map((e) => {
-      const l = this.normalizeItem(e), _ = l.circular_image, o = l.circular_title, s = l.circular_text, d = l.circular_url || "#";
-      return c`
-                <a href="${d}" class="min-link-circular__item">
+      const p = e.circular_image, o = s(
+        e.circular_title,
+        ""
+      ), _ = s(
+        e.circular_text,
+        ""
+      ), u = e.circular_url || "#";
+      return l`
+                <a href="${u}" class="min-link-circular__item">
 
                   <div class="min-link-circular__image-wrapper">
                     <div class="min-link-circular__image-inner">
-                      <img src="${_}" loading="lazy" />
+                      <img
+                        src="${p}"
+                        loading="lazy"
+                        alt="${o}"
+                      />
                     </div>
                   </div>
 
-                  ${o || s ? c`
+                  ${o.trim() || _.trim() ? l`
                         <div class="min-link-circular__content">
-                          ${o ? c`<strong class="min-link-circular__title-text">${o}</strong>` : ""}
-                          ${s ? c`<span class="min-link-circular__desc">${s}</span>` : ""}
+
+                          ${o.trim() ? l`
+                                <strong class="min-link-circular__title-text">
+                                  ${o}
+                                </strong>
+                              ` : ""}
+
+                          ${_.trim() ? l`
+                                <span class="min-link-circular__desc">
+                                  ${_}
+                                </span>
+                              ` : ""}
+
                         </div>
                       ` : ""}
 
@@ -184,10 +212,10 @@ class m extends u {
     `;
   }
 }
-k([
-  p({ type: Object })
-], m.prototype, "config");
-typeof m < "u" && m.registerSallaComponent("salla-min-links-circular");
+x([
+  k({ type: Object })
+], d.prototype, "config");
+typeof d < "u" && d.registerSallaComponent("salla-min-links-circular");
 export {
-  m as default
+  d as default
 };

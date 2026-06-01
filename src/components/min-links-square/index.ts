@@ -1,5 +1,6 @@
 import { html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
+import { localizedString } from '../../utils/localizedString';
 
 export default class LinksSquareRayhana extends LitElement {
   @property({ type: Object })
@@ -12,8 +13,11 @@ export default class LinksSquareRayhana extends LitElement {
   private normalizeItem(item: any) {
     const obj: any = {};
 
-    Object.keys(item).forEach(key => {
-      const newKey = key.includes('.') ? key.split('.').pop() : key;
+    Object.keys(item || {}).forEach(key => {
+      const newKey = key.includes('.')
+        ? key.split('.').pop()
+        : key;
+
       obj[newKey] = item[key];
     });
 
@@ -21,7 +25,19 @@ export default class LinksSquareRayhana extends LitElement {
   }
 
   render() {
-    const items = this.config?.square_links_reihana || [];
+    const items = (this.config?.square_links_reihana || []).map(
+      (item: any) => this.normalizeItem(item)
+    );
+
+    const sectionTitle = localizedString(
+      this.config?.square_links_title,
+      ''
+    );
+
+    const sectionSubtitle = localizedString(
+      this.config?.square_links_subtitle,
+      ''
+    );
 
     return html`
       <style>
@@ -118,21 +134,19 @@ export default class LinksSquareRayhana extends LitElement {
           color: #555;
         }
 
-        /* ================= DARK MODE ================= */
-
-        [data-theme="dark"] .min-link-square__title {
+        [data-theme='dark'] .min-link-square__title {
           color: #fff;
         }
 
-        [data-theme="dark"] .min-link-square__subtitle {
+        [data-theme='dark'] .min-link-square__subtitle {
           color: #aaa;
         }
 
-        [data-theme="dark"] .min-link-square__title-text {
+        [data-theme='dark'] .min-link-square__title-text {
           color: #fff;
         }
 
-        [data-theme="dark"] .min-link-square__desc {
+        [data-theme='dark'] .min-link-square__desc {
           color: #bbb;
         }
       </style>
@@ -140,30 +154,37 @@ export default class LinksSquareRayhana extends LitElement {
       <section class="min-link-square">
         <div class="min-link-square__container">
 
-          ${
-            this.config?.square_links_title
-              ? html`<h2 class="min-link-square__title">
-                ${this.config.square_links_title}
-              </h2>`
-              : ''
-          }
+          ${sectionTitle.trim()
+            ? html`
+                <h2 class="min-link-square__title">
+                  ${sectionTitle}
+                </h2>
+              `
+            : ''}
 
-          ${
-            this.config?.square_links_subtitle
-              ? html`<p class="min-link-square__subtitle">
-                ${this.config.square_links_subtitle}
-              </p>`
-              : ''
-          }
+          ${sectionSubtitle.trim()
+            ? html`
+                <p class="min-link-square__subtitle">
+                  ${sectionSubtitle}
+                </p>
+              `
+            : ''}
 
           <div class="min-link-square__grid">
 
-            ${items.map((raw: any) => {
-              const item = this.normalizeItem(raw);
-
+            ${items.map((item: any) => {
               const image = item.square_image;
-              const title = item.square_title;
-              const text = item.square_text;
+
+              const title = localizedString(
+                item.square_title,
+                ''
+              );
+
+              const text = localizedString(
+                item.square_text,
+                ''
+              );
+
               const url = item.square_url || '#';
 
               return html`
@@ -171,20 +192,37 @@ export default class LinksSquareRayhana extends LitElement {
 
                   <div class="min-link-square__image-wrapper">
                     <div class="min-link-square__image-inner">
-                      <img src="${image}" loading="lazy" />
+                      <img
+                        src="${image}"
+                        loading="lazy"
+                        alt="${title}"
+                      />
                     </div>
                   </div>
 
-                  ${
-                    title || text
-                      ? html`
-                      <div class="min-link-square__content">
-                        ${title ? html`<strong class="min-link-square__title-text">${title}</strong>` : ''}
-                        ${text ? html`<span class="min-link-square__desc">${text}</span>` : ''}
-                      </div>
-                    `
-                      : ''
-                  }
+                  ${(title || '').trim() || (text || '').trim()
+                    ? html`
+                        <div class="min-link-square__content">
+
+                          ${(title || '').trim()
+                            ? html`
+                                <strong class="min-link-square__title-text">
+                                  ${title}
+                                </strong>
+                              `
+                            : ''}
+
+                          ${(text || '').trim()
+                            ? html`
+                                <span class="min-link-square__desc">
+                                  ${text}
+                                </span>
+                              `
+                            : ''}
+
+                        </div>
+                      `
+                    : ''}
 
                 </a>
               `;

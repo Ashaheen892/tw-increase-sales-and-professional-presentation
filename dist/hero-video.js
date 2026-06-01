@@ -1,39 +1,71 @@
-import { LitElement as x, css as m, html as a } from "lit";
-import { property as y } from "lit/decorators.js";
-var $ = Object.defineProperty, w = (d, t, e, s) => {
-  for (var o = void 0, i = d.length - 1, r; i >= 0; i--)
-    (r = d[i]) && (o = r(t, e, o) || o);
-  return o && $(t, e, o), o;
+import { LitElement as x, css as y, html as a } from "lit";
+import { property as w } from "lit/decorators.js";
+import { l } from "./localizedString-WeqHgpra.js";
+var C = Object.defineProperty, $ = (c, e, t, s) => {
+  for (var o = void 0, i = c.length - 1, r; i >= 0; i--)
+    (r = c[i]) && (o = r(e, t, o) || o);
+  return o && C(e, t, o), o;
 };
-const l = class l extends x {
-  // ✅ helper لتحويل القيم (يدعم object / number)
-  getValue(t, e = 0) {
-    return typeof t == "object" ? (t == null ? void 0 : t.value) ?? e : t ?? e;
-  }
-  // ✅ تجهيز البيانات
-  get data() {
-    var s, o, i, r, c, p, v, h, g, f, b, _, u;
-    const t = (s = this.config) == null ? void 0 : s.hero_video_view_mob;
-    let e = "hero_video_rectangle";
-    return Array.isArray(t) ? e = (o = t[0]) == null ? void 0 : o.value : typeof t == "object" ? e = t == null ? void 0 : t.value : typeof t == "string" && (e = t), {
-      video: (i = this.config) == null ? void 0 : i.hero_video_url,
-      title: (r = this.config) == null ? void 0 : r.hero_video_title,
-      text: (c = this.config) == null ? void 0 : c.hero_video_text,
-      btnText: (p = this.config) == null ? void 0 : p.hero_video_btnText,
-      btnUrl: (v = this.config) == null ? void 0 : v.hero_video_btn_url,
-      overlay: this.getValue((h = this.config) == null ? void 0 : h.hero_video_overlay, 6),
-      overlayColor: ((g = this.config) == null ? void 0 : g.hero_video_overlay_color) || "#000",
-      btnTextColor: ((f = this.config) == null ? void 0 : f.hero_video_textColor) || "#000",
-      btnBg: ((b = this.config) == null ? void 0 : b.hero_video_textBgColor) || "#fff",
-      // ✅ المسافات (تم إصلاحها هنا)
-      spaceTop: this.getValue((_ = this.config) == null ? void 0 : _.hero_video_higher_distance, 0),
-      spaceMobile: this.getValue((u = this.config) == null ? void 0 : u.hero_video_distance_mob, 0),
-      view: e
+const d = class d extends x {
+  constructor() {
+    super(...arguments), this.handleLanguageChange = () => {
+      this.requestUpdate();
     };
   }
-  // ✅ نفس منطق Twig
-  getRatioClass(t) {
-    switch (t) {
+  connectedCallback() {
+    super.connectedCallback(), window.addEventListener(
+      "language-changed",
+      this.handleLanguageChange
+    );
+  }
+  disconnectedCallback() {
+    window.removeEventListener(
+      "language-changed",
+      this.handleLanguageChange
+    ), super.disconnectedCallback();
+  }
+  getValue(e, t = 0) {
+    return typeof e == "object" ? (e == null ? void 0 : e.value) ?? t : e ?? t;
+  }
+  get data() {
+    var s, o, i, r, h, g, p, v, f, u, b, _, m;
+    const e = (s = this.config) == null ? void 0 : s.hero_video_view_mob;
+    let t = "hero_video_rectangle";
+    return Array.isArray(e) ? t = (o = e[0]) == null ? void 0 : o.value : typeof e == "object" ? t = e == null ? void 0 : e.value : typeof e == "string" && (t = e), {
+      video: (i = this.config) == null ? void 0 : i.hero_video_url,
+      title: l(
+        (r = this.config) == null ? void 0 : r.hero_video_title,
+        ""
+      ),
+      text: l(
+        (h = this.config) == null ? void 0 : h.hero_video_text,
+        ""
+      ),
+      btnText: l(
+        (g = this.config) == null ? void 0 : g.hero_video_btnText,
+        ""
+      ),
+      btnUrl: (p = this.config) == null ? void 0 : p.hero_video_btn_url,
+      overlay: this.getValue(
+        (v = this.config) == null ? void 0 : v.hero_video_overlay,
+        6
+      ),
+      overlayColor: ((f = this.config) == null ? void 0 : f.hero_video_overlay_color) || "#000",
+      btnTextColor: ((u = this.config) == null ? void 0 : u.hero_video_textColor) || "#000",
+      btnBg: ((b = this.config) == null ? void 0 : b.hero_video_textBgColor) || "#fff",
+      spaceTop: this.getValue(
+        (_ = this.config) == null ? void 0 : _.hero_video_higher_distance,
+        0
+      ),
+      spaceMobile: this.getValue(
+        (m = this.config) == null ? void 0 : m.hero_video_distance_mob,
+        0
+      ),
+      view: t
+    };
+  }
+  getRatioClass(e) {
+    switch (e) {
       case "hero_video_rectangle_tiktok":
         return "ratio-9-16";
       case "hero_video_rectangle_video":
@@ -43,62 +75,68 @@ const l = class l extends x {
     }
   }
   render() {
-    var e;
-    const t = this.data;
+    var t;
+    const e = this.data;
     return a`
-      <div
-        class="wrapper"
-        style="
-          --mt: ${t.spaceMobile}px;
-          --mt-lg: ${t.spaceTop}px;
-        "
-      >
-        <div class="hero ${this.getRatioClass(t.view)}">
-          ${t.video ? a`
-                <video
-                  src="${t.video}"
-                  autoplay
-                  muted
-                  loop
-                  playsinline
-                ></video>
+    <div
+      class="wrapper"
+      style="
+        --mt:${e.spaceMobile}px;
+        --mt-lg:${e.spaceTop}px;
+      "
+    >
+      <div class="hero ${this.getRatioClass(e.view)}">
+        ${e.video ? a`
+              <video
+                src="${e.video}"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+            ` : ""}
+
+        <div
+          class="overlay-bg"
+          style="
+            background:${e.overlayColor};
+            opacity:${e.overlay / 10};
+          "
+        ></div>
+
+        <div class="overlay-content">
+          ${e.title ? a`
+                <div class="title">
+                  ${e.title}
+                </div>
               ` : ""}
 
-          <!-- overlay -->
-          <div
-            class="overlay-bg"
-            style="
-              background: ${t.overlayColor};
-              opacity: ${t.overlay / 10};
-            "
-          ></div>
+          ${e.text ? a`
+                <div class="text">
+                  ${e.text}
+                </div>
+              ` : ""}
 
-          <!-- content -->
-          <div class="overlay-content">
-            ${t.title ? a`<div class="title">${t.title}</div>` : ""}
-
-            ${t.text ? a`<div class="text">${t.text}</div>` : ""}
-
-            ${t.btnText ? a`
-                    <a href="${((e = t.btnUrl) == null ? void 0 : e.value) || "#"}">
-                      <button
-                        class="btn"
-                        style="
-                          background:${t.btnBg};
-                          color:${t.btnTextColor};
-                        "
-                      >
-                        ${t.btnText}
-                      </button>
-                    </a>
-                  ` : ""}
-          </div>
+          ${e.btnText ? a`
+                <a href="${((t = e.btnUrl) == null ? void 0 : t.value) || "#"}">
+                  <button
+                    class="btn"
+                    style="
+                      background:${e.btnBg};
+                      color:${e.btnTextColor};
+                    "
+                  >
+                    ${e.btnText}
+                  </button>
+                </a>
+              ` : ""}
         </div>
       </div>
-    `;
+    </div>
+  `;
   }
 };
-l.styles = m`
+d.styles = y`
     :host {
       display: block;
     }
@@ -138,10 +176,12 @@ l.styles = m`
       position: absolute;
       inset: 0;
       z-index: 2;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
       padding: 20px;
       text-align: center;
     }
@@ -174,7 +214,6 @@ l.styles = m`
       opacity: 0.9;
     }
 
-    /* ratios */
     .ratio-3-4 {
       aspect-ratio: 3 / 4;
     }
@@ -195,9 +234,9 @@ l.styles = m`
       }
     }
   `;
-let n = l;
-w([
-  y({ type: Object })
+let n = d;
+$([
+  w({ type: Object })
 ], n.prototype, "config");
 typeof n < "u" && n.registerSallaComponent("salla-hero-video");
 export {

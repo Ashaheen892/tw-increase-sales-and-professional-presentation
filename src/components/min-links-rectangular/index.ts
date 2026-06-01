@@ -1,5 +1,6 @@
 import { html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
+import { localizedString } from '../../utils/localizedString';
 
 export default class LinksRectangular extends LitElement {
   @property({ type: Object }) config: any;
@@ -8,12 +9,38 @@ export default class LinksRectangular extends LitElement {
     return this;
   }
 
+  private normalizeItem(item: Record<string, any>) {
+    return Object.entries(item || {}).reduce(
+      (acc, [key, value]) => {
+        const normalizedKey = key.includes('.')
+          ? key.split('.').pop()!
+          : key;
+
+        acc[normalizedKey] = value;
+        return acc;
+      },
+      {} as Record<string, any>
+    );
+  }
+
   getItems() {
-    return this.config?.rectangular_links || [];
+    return (this.config?.rectangular_links || []).map((item: any) =>
+      this.normalizeItem(item)
+    );
   }
 
   render() {
     const items = this.getItems();
+
+    const sectionTitle = localizedString(
+      this.config?.rectangular_links_title,
+      ''
+    );
+
+    const sectionSubtitle = localizedString(
+      this.config?.rectangular_links_subtitle,
+      ''
+    );
 
     if (!items.length) {
       return html`<div style="padding:20px">No items</div>`;
@@ -118,21 +145,19 @@ export default class LinksRectangular extends LitElement {
           color: #555;
         }
 
-        /* ================= DARK MODE ================= */
-
-        [data-theme="dark"] .min-link-rectangular__title {
+        [data-theme='dark'] .min-link-rectangular__title {
           color: #fff;
         }
 
-        [data-theme="dark"] .min-link-rectangular__subtitle {
+        [data-theme='dark'] .min-link-rectangular__subtitle {
           color: #aaa;
         }
 
-        [data-theme="dark"] .min-link-rectangular__title-text {
+        [data-theme='dark'] .min-link-rectangular__title-text {
           color: #fff;
         }
 
-        [data-theme="dark"] .min-link-rectangular__desc {
+        [data-theme='dark'] .min-link-rectangular__desc {
           color: #bbb;
         }
       </style>
@@ -140,51 +165,78 @@ export default class LinksRectangular extends LitElement {
       <section class="min-link-rectangular">
         <div class="min-link-rectangular__container">
 
-          ${
-            this.config?.rectangular_links_title
-              ? html`<h2 class="min-link-rectangular__title">
-                ${this.config.rectangular_links_title}
-              </h2>`
-              : ''
-          }
+          ${sectionTitle.trim()
+            ? html`
+                <h2 class="min-link-rectangular__title">
+                  ${sectionTitle}
+                </h2>
+              `
+            : ''}
 
-          ${
-            this.config?.rectangular_links_subtitle
-              ? html`<p class="min-link-rectangular__subtitle">
-                ${this.config.rectangular_links_subtitle}
-              </p>`
-              : ''
-          }
+          ${sectionSubtitle.trim()
+            ? html`
+                <p class="min-link-rectangular__subtitle">
+                  ${sectionSubtitle}
+                </p>
+              `
+            : ''}
 
           <div class="min-link-rectangular__grid">
 
             ${items.map((item: any) => {
               const image = item.rectangular_image;
-              const title = item.rectangular_title;
-              const text = item.rectangular_text;
+
+              const title = localizedString(
+                item.rectangular_title,
+                ''
+              );
+
+              const text = localizedString(
+                item.rectangular_text,
+                ''
+              );
+
               const url = item.rectangular_url || '#';
 
               return html`
                 <a href="${url}" class="min-link-rectangular__item">
 
-                  <div class="min-link-rectangular__image-wrapper 
-                    ${this.config?.rectangular_links_rounded ? 'min-link-rectangular__image-wrapper--rounded' : ''}">
-                    
+                  <div
+                    class="min-link-rectangular__image-wrapper
+                    ${this.config?.rectangular_links_rounded
+                      ? 'min-link-rectangular__image-wrapper--rounded'
+                      : ''}"
+                  >
                     <div class="min-link-rectangular__image-inner">
-                      <img src="${image}" loading="lazy" />
+                      <img
+                        src="${image}"
+                        loading="lazy"
+                        alt="${title}"
+                      />
                     </div>
                   </div>
 
-                  ${
-                    title || text
-                      ? html`
-                      <div class="min-link-rectangular__content">
-                        ${title ? html`<strong class="min-link-rectangular__title-text">${title}</strong>` : ''}
-                        ${text ? html`<span class="min-link-rectangular__desc">${text}</span>` : ''}
-                      </div>
-                    `
-                      : ''
-                  }
+                  ${title.trim() || text.trim()
+                    ? html`
+                        <div class="min-link-rectangular__content">
+                          ${title.trim()
+                            ? html`
+                                <strong class="min-link-rectangular__title-text">
+                                  ${title}
+                                </strong>
+                              `
+                            : ''}
+
+                          ${text.trim()
+                            ? html`
+                                <span class="min-link-rectangular__desc">
+                                  ${text}
+                                </span>
+                              `
+                            : ''}
+                        </div>
+                      `
+                    : ''}
 
                 </a>
               `;

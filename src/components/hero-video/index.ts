@@ -1,17 +1,41 @@
 import { css, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
+import { localizedString } from '../../utils/localizedString';
 
 export default class SajiHeroVideo extends LitElement {
   @property({ type: Object })
   config?: Record<string, any>;
 
-  // ✅ helper لتحويل القيم (يدعم object / number)
+  private handleLanguageChange = () => {
+    this.requestUpdate();
+  };
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    window.addEventListener(
+      'language-changed',
+      this.handleLanguageChange
+    );
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener(
+      'language-changed',
+      this.handleLanguageChange
+    );
+
+    super.disconnectedCallback();
+  }
+
   getValue(val: any, fallback = 0) {
-    if (typeof val === 'object') return val?.value ?? fallback;
+    if (typeof val === 'object') {
+      return val?.value ?? fallback;
+    }
+
     return val ?? fallback;
   }
 
-  // ✅ تجهيز البيانات
   get data() {
     const viewRaw = this.config?.hero_video_view_mob;
 
@@ -27,32 +51,60 @@ export default class SajiHeroVideo extends LitElement {
 
     return {
       video: this.config?.hero_video_url,
-      title: this.config?.hero_video_title,
-      text: this.config?.hero_video_text,
-      btnText: this.config?.hero_video_btnText,
+
+      title: localizedString(
+        this.config?.hero_video_title,
+        ''
+      ),
+
+      text: localizedString(
+        this.config?.hero_video_text,
+        ''
+      ),
+
+      btnText: localizedString(
+        this.config?.hero_video_btnText,
+        ''
+      ),
+
       btnUrl: this.config?.hero_video_btn_url,
 
-      overlay: this.getValue(this.config?.hero_video_overlay, 6),
-      overlayColor: this.config?.hero_video_overlay_color || '#000',
+      overlay: this.getValue(
+        this.config?.hero_video_overlay,
+        6
+      ),
 
-      btnTextColor: this.config?.hero_video_textColor || '#000',
-      btnBg: this.config?.hero_video_textBgColor || '#fff',
+      overlayColor:
+        this.config?.hero_video_overlay_color || '#000',
 
-      // ✅ المسافات (تم إصلاحها هنا)
-      spaceTop: this.getValue(this.config?.hero_video_higher_distance, 0),
-      spaceMobile: this.getValue(this.config?.hero_video_distance_mob, 0),
+      btnTextColor:
+        this.config?.hero_video_textColor || '#000',
+
+      btnBg:
+        this.config?.hero_video_textBgColor || '#fff',
+
+      spaceTop: this.getValue(
+        this.config?.hero_video_higher_distance,
+        0
+      ),
+
+      spaceMobile: this.getValue(
+        this.config?.hero_video_distance_mob,
+        0
+      ),
 
       view,
     };
   }
 
-  // ✅ نفس منطق Twig
   getRatioClass(view: string) {
     switch (view) {
       case 'hero_video_rectangle_tiktok':
         return 'ratio-9-16';
+
       case 'hero_video_rectangle_video':
         return 'ratio-wide';
+
       default:
         return 'ratio-3-4';
     }
@@ -98,10 +150,12 @@ export default class SajiHeroVideo extends LitElement {
       position: absolute;
       inset: 0;
       z-index: 2;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
       padding: 20px;
       text-align: center;
     }
@@ -134,7 +188,6 @@ export default class SajiHeroVideo extends LitElement {
       opacity: 0.9;
     }
 
-    /* ratios */
     .ratio-3-4 {
       aspect-ratio: 3 / 4;
     }
@@ -156,67 +209,73 @@ export default class SajiHeroVideo extends LitElement {
     }
   `;
 
-  render() {
-    const d = this.data;
+ render() {
+  const d = this.data;
 
-    return html`
-      <div
-        class="wrapper"
-        style="
-          --mt: ${d.spaceMobile}px;
-          --mt-lg: ${d.spaceTop}px;
-        "
-      >
-        <div class="hero ${this.getRatioClass(d.view)}">
-          ${
-            d.video
-              ? html`
-                <video
-                  src="${d.video}"
-                  autoplay
-                  muted
-                  loop
-                  playsinline
-                ></video>
+  return html`
+    <div
+      class="wrapper"
+      style="
+        --mt:${d.spaceMobile}px;
+        --mt-lg:${d.spaceTop}px;
+      "
+    >
+      <div class="hero ${this.getRatioClass(d.view)}">
+        ${d.video
+          ? html`
+              <video
+                src="${d.video}"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+            `
+          : ''}
+
+        <div
+          class="overlay-bg"
+          style="
+            background:${d.overlayColor};
+            opacity:${d.overlay / 10};
+          "
+        ></div>
+
+        <div class="overlay-content">
+          ${d.title
+            ? html`
+                <div class="title">
+                  ${d.title}
+                </div>
               `
-              : ''
-          }
+            : ''}
 
-          <!-- overlay -->
-          <div
-            class="overlay-bg"
-            style="
-              background: ${d.overlayColor};
-              opacity: ${d.overlay / 10};
-            "
-          ></div>
+          ${d.text
+            ? html`
+                <div class="text">
+                  ${d.text}
+                </div>
+              `
+            : ''}
 
-          <!-- content -->
-          <div class="overlay-content">
-            ${d.title ? html`<div class="title">${d.title}</div>` : ''}
-
-            ${d.text ? html`<div class="text">${d.text}</div>` : ''}
-
-            ${
-              d.btnText
-                ? html`
-                    <a href="${d.btnUrl?.value || '#'}">
-                      <button
-                        class="btn"
-                        style="
-                          background:${d.btnBg};
-                          color:${d.btnTextColor};
-                        "
-                      >
-                        ${d.btnText}
-                      </button>
-                    </a>
-                  `
-                : ''
-            }
-          </div>
+          ${d.btnText
+            ? html`
+                <a href="${d.btnUrl?.value || '#'}">
+                  <button
+                    class="btn"
+                    style="
+                      background:${d.btnBg};
+                      color:${d.btnTextColor};
+                    "
+                  >
+                    ${d.btnText}
+                  </button>
+                </a>
+              `
+            : ''}
         </div>
       </div>
-    `;
-  }
+    </div>
+  `;
+}
 }

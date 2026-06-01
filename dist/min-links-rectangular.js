@@ -1,22 +1,40 @@
-import { LitElement as _, html as t } from "lit";
-import { property as d } from "lit/decorators.js";
-var u = Object.defineProperty, p = (l, i, r, c) => {
-  for (var n = void 0, a = l.length - 1, e; a >= 0; a--)
-    (e = l[a]) && (n = e(i, r, n) || n);
-  return n && u(i, r, n), n;
+import { LitElement as p, html as r } from "lit";
+import { property as k } from "lit/decorators.js";
+import { l as o } from "./localizedString-WeqHgpra.js";
+var f = Object.defineProperty, x = (m, n, i, a) => {
+  for (var t = void 0, e = m.length - 1, l; e >= 0; e--)
+    (l = m[e]) && (t = l(n, i, t) || t);
+  return t && f(n, i, t), t;
 };
-class o extends _ {
+class g extends p {
   createRenderRoot() {
     return this;
   }
+  normalizeItem(n) {
+    return Object.entries(n || {}).reduce(
+      (i, [a, t]) => {
+        const e = a.includes(".") ? a.split(".").pop() : a;
+        return i[e] = t, i;
+      },
+      {}
+    );
+  }
   getItems() {
-    var i;
-    return ((i = this.config) == null ? void 0 : i.rectangular_links) || [];
+    var n;
+    return (((n = this.config) == null ? void 0 : n.rectangular_links) || []).map(
+      (i) => this.normalizeItem(i)
+    );
   }
   render() {
-    var r, c;
-    const i = this.getItems();
-    return i.length ? t`
+    var t, e;
+    const n = this.getItems(), i = o(
+      (t = this.config) == null ? void 0 : t.rectangular_links_title,
+      ""
+    ), a = o(
+      (e = this.config) == null ? void 0 : e.rectangular_links_subtitle,
+      ""
+    );
+    return n.length ? r`
       <style>
         .min-link-rectangular {
           margin: 32px 0;
@@ -115,21 +133,19 @@ class o extends _ {
           color: #555;
         }
 
-        /* ================= DARK MODE ================= */
-
-        [data-theme="dark"] .min-link-rectangular__title {
+        [data-theme='dark'] .min-link-rectangular__title {
           color: #fff;
         }
 
-        [data-theme="dark"] .min-link-rectangular__subtitle {
+        [data-theme='dark'] .min-link-rectangular__subtitle {
           color: #aaa;
         }
 
-        [data-theme="dark"] .min-link-rectangular__title-text {
+        [data-theme='dark'] .min-link-rectangular__title-text {
           color: #fff;
         }
 
-        [data-theme="dark"] .min-link-rectangular__desc {
+        [data-theme='dark'] .min-link-rectangular__desc {
           color: #bbb;
         }
       </style>
@@ -137,36 +153,60 @@ class o extends _ {
       <section class="min-link-rectangular">
         <div class="min-link-rectangular__container">
 
-          ${(r = this.config) != null && r.rectangular_links_title ? t`<h2 class="min-link-rectangular__title">
-                ${this.config.rectangular_links_title}
-              </h2>` : ""}
+          ${i.trim() ? r`
+                <h2 class="min-link-rectangular__title">
+                  ${i}
+                </h2>
+              ` : ""}
 
-          ${(c = this.config) != null && c.rectangular_links_subtitle ? t`<p class="min-link-rectangular__subtitle">
-                ${this.config.rectangular_links_subtitle}
-              </p>` : ""}
+          ${a.trim() ? r`
+                <p class="min-link-rectangular__subtitle">
+                  ${a}
+                </p>
+              ` : ""}
 
           <div class="min-link-rectangular__grid">
 
-            ${i.map((n) => {
-      var s;
-      const a = n.rectangular_image, e = n.rectangular_title, g = n.rectangular_text, m = n.rectangular_url || "#";
-      return t`
-                <a href="${m}" class="min-link-rectangular__item">
+            ${n.map((l) => {
+      var d;
+      const _ = l.rectangular_image, c = o(
+        l.rectangular_title,
+        ""
+      ), s = o(
+        l.rectangular_text,
+        ""
+      ), u = l.rectangular_url || "#";
+      return r`
+                <a href="${u}" class="min-link-rectangular__item">
 
-                  <div class="min-link-rectangular__image-wrapper 
-                    ${(s = this.config) != null && s.rectangular_links_rounded ? "min-link-rectangular__image-wrapper--rounded" : ""}">
-                    
+                  <div
+                    class="min-link-rectangular__image-wrapper
+                    ${(d = this.config) != null && d.rectangular_links_rounded ? "min-link-rectangular__image-wrapper--rounded" : ""}"
+                  >
                     <div class="min-link-rectangular__image-inner">
-                      <img src="${a}" loading="lazy" />
+                      <img
+                        src="${_}"
+                        loading="lazy"
+                        alt="${c}"
+                      />
                     </div>
                   </div>
 
-                  ${e || g ? t`
-                      <div class="min-link-rectangular__content">
-                        ${e ? t`<strong class="min-link-rectangular__title-text">${e}</strong>` : ""}
-                        ${g ? t`<span class="min-link-rectangular__desc">${g}</span>` : ""}
-                      </div>
-                    ` : ""}
+                  ${c.trim() || s.trim() ? r`
+                        <div class="min-link-rectangular__content">
+                          ${c.trim() ? r`
+                                <strong class="min-link-rectangular__title-text">
+                                  ${c}
+                                </strong>
+                              ` : ""}
+
+                          ${s.trim() ? r`
+                                <span class="min-link-rectangular__desc">
+                                  ${s}
+                                </span>
+                              ` : ""}
+                        </div>
+                      ` : ""}
 
                 </a>
               `;
@@ -176,13 +216,13 @@ class o extends _ {
 
         </div>
       </section>
-    ` : t`<div style="padding:20px">No items</div>`;
+    ` : r`<div style="padding:20px">No items</div>`;
   }
 }
-p([
-  d({ type: Object })
-], o.prototype, "config");
-typeof o < "u" && o.registerSallaComponent("salla-min-links-rectangular");
+x([
+  k({ type: Object })
+], g.prototype, "config");
+typeof g < "u" && g.registerSallaComponent("salla-min-links-rectangular");
 export {
-  o as default
+  g as default
 };

@@ -1,25 +1,34 @@
-import { LitElement as u, html as r } from "lit";
-import { property as p } from "lit/decorators.js";
-var k = Object.defineProperty, g = (l, t, e, n) => {
-  for (var i = void 0, s = l.length - 1, a; s >= 0; s--)
-    (a = l[s]) && (i = a(t, e, i) || i);
-  return i && k(t, e, i), i;
+import { LitElement as g, html as a } from "lit";
+import { property as k } from "lit/decorators.js";
+import { l as m } from "./localizedString-WeqHgpra.js";
+var q = Object.defineProperty, f = (_, n, e, t) => {
+  for (var i = void 0, r = _.length - 1, l; r >= 0; r--)
+    (l = _[r]) && (i = l(n, e, i) || i);
+  return i && q(n, e, i), i;
 };
-class _ extends u {
+class d extends g {
   createRenderRoot() {
     return this;
   }
-  normalizeItem(t) {
+  normalizeItem(n) {
     const e = {};
-    return Object.keys(t).forEach((n) => {
-      const i = n.includes(".") ? n.split(".").pop() : n;
-      e[i] = t[n];
+    return Object.keys(n || {}).forEach((t) => {
+      const i = t.includes(".") ? t.split(".").pop() : t;
+      e[i] = n[t];
     }), e;
   }
   render() {
-    var e, n, i;
-    const t = ((e = this.config) == null ? void 0 : e.square_links_reihana) || [];
-    return r`
+    var i, r, l;
+    const n = (((i = this.config) == null ? void 0 : i.square_links_reihana) || []).map(
+      (s) => this.normalizeItem(s)
+    ), e = m(
+      (r = this.config) == null ? void 0 : r.square_links_title,
+      ""
+    ), t = m(
+      (l = this.config) == null ? void 0 : l.square_links_subtitle,
+      ""
+    );
+    return a`
       <style>
         .min-link-square {
           margin: 32px 0;
@@ -114,21 +123,19 @@ class _ extends u {
           color: #555;
         }
 
-        /* ================= DARK MODE ================= */
-
-        [data-theme="dark"] .min-link-square__title {
+        [data-theme='dark'] .min-link-square__title {
           color: #fff;
         }
 
-        [data-theme="dark"] .min-link-square__subtitle {
+        [data-theme='dark'] .min-link-square__subtitle {
           color: #aaa;
         }
 
-        [data-theme="dark"] .min-link-square__title-text {
+        [data-theme='dark'] .min-link-square__title-text {
           color: #fff;
         }
 
-        [data-theme="dark"] .min-link-square__desc {
+        [data-theme='dark'] .min-link-square__desc {
           color: #bbb;
         }
       </style>
@@ -136,33 +143,58 @@ class _ extends u {
       <section class="min-link-square">
         <div class="min-link-square__container">
 
-          ${(n = this.config) != null && n.square_links_title ? r`<h2 class="min-link-square__title">
-                ${this.config.square_links_title}
-              </h2>` : ""}
+          ${e.trim() ? a`
+                <h2 class="min-link-square__title">
+                  ${e}
+                </h2>
+              ` : ""}
 
-          ${(i = this.config) != null && i.square_links_subtitle ? r`<p class="min-link-square__subtitle">
-                ${this.config.square_links_subtitle}
-              </p>` : ""}
+          ${t.trim() ? a`
+                <p class="min-link-square__subtitle">
+                  ${t}
+                </p>
+              ` : ""}
 
           <div class="min-link-square__grid">
 
-            ${t.map((s) => {
-      const a = this.normalizeItem(s), c = a.square_image, o = a.square_title, m = a.square_text, d = a.square_url || "#";
-      return r`
-                <a href="${d}" class="min-link-square__item">
+            ${n.map((s) => {
+      const p = s.square_image, o = m(
+        s.square_title,
+        ""
+      ), c = m(
+        s.square_text,
+        ""
+      ), u = s.square_url || "#";
+      return a`
+                <a href="${u}" class="min-link-square__item">
 
                   <div class="min-link-square__image-wrapper">
                     <div class="min-link-square__image-inner">
-                      <img src="${c}" loading="lazy" />
+                      <img
+                        src="${p}"
+                        loading="lazy"
+                        alt="${o}"
+                      />
                     </div>
                   </div>
 
-                  ${o || m ? r`
-                      <div class="min-link-square__content">
-                        ${o ? r`<strong class="min-link-square__title-text">${o}</strong>` : ""}
-                        ${m ? r`<span class="min-link-square__desc">${m}</span>` : ""}
-                      </div>
-                    ` : ""}
+                  ${(o || "").trim() || (c || "").trim() ? a`
+                        <div class="min-link-square__content">
+
+                          ${(o || "").trim() ? a`
+                                <strong class="min-link-square__title-text">
+                                  ${o}
+                                </strong>
+                              ` : ""}
+
+                          ${(c || "").trim() ? a`
+                                <span class="min-link-square__desc">
+                                  ${c}
+                                </span>
+                              ` : ""}
+
+                        </div>
+                      ` : ""}
 
                 </a>
               `;
@@ -175,10 +207,10 @@ class _ extends u {
     `;
   }
 }
-g([
-  p({ type: Object })
-], _.prototype, "config");
-typeof _ < "u" && _.registerSallaComponent("salla-min-links-square");
+f([
+  k({ type: Object })
+], d.prototype, "config");
+typeof d < "u" && d.registerSallaComponent("salla-min-links-square");
 export {
-  _ as default
+  d as default
 };

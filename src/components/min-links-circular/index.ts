@@ -1,5 +1,6 @@
 import { html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
+import { localizedString } from '../../utils/localizedString';
 
 export default class LinksCircularRayhana extends LitElement {
   @property({ type: Object })
@@ -12,8 +13,11 @@ export default class LinksCircularRayhana extends LitElement {
   private normalizeItem(item: any) {
     const obj: any = {};
 
-    Object.keys(item).forEach(key => {
-      const newKey = key.includes('.') ? key.split('.').pop() : key;
+    Object.keys(item || {}).forEach(key => {
+      const newKey = key.includes('.')
+        ? key.split('.').pop()
+        : key;
+
       obj[newKey] = item[key];
     });
 
@@ -21,7 +25,19 @@ export default class LinksCircularRayhana extends LitElement {
   }
 
   render() {
-    const items = this.config?.circular_links_reihana || [];
+    const items = (this.config?.circular_links_reihana || []).map(
+      (item: any) => this.normalizeItem(item)
+    );
+
+    const sectionTitle = localizedString(
+      this.config?.circular_links_title,
+      ''
+    );
+
+    const sectionSubtitle = localizedString(
+      this.config?.circular_links_subtitle,
+      ''
+    );
 
     return html`
       <style>
@@ -123,21 +139,19 @@ export default class LinksCircularRayhana extends LitElement {
           color: #555;
         }
 
-        /* ================= DARK MODE ================= */
-
-        [data-theme="dark"] .min-link-circular__title {
+        [data-theme='dark'] .min-link-circular__title {
           color: #fff;
         }
 
-        [data-theme="dark"] .min-link-circular__subtitle {
+        [data-theme='dark'] .min-link-circular__subtitle {
           color: #aaa;
         }
 
-        [data-theme="dark"] .min-link-circular__title-text {
+        [data-theme='dark'] .min-link-circular__title-text {
           color: #fff;
         }
 
-        [data-theme="dark"] .min-link-circular__desc {
+        [data-theme='dark'] .min-link-circular__desc {
           color: #bbb;
         }
       </style>
@@ -145,34 +159,37 @@ export default class LinksCircularRayhana extends LitElement {
       <section class="min-link-circular">
         <div class="min-link-circular__container">
 
-          ${
-            this.config?.circular_links_title
-              ? html`
+          ${sectionTitle.trim()
+            ? html`
                 <h2 class="min-link-circular__title">
-                  ${this.config.circular_links_title}
+                  ${sectionTitle}
                 </h2>
               `
-              : ''
-          }
+            : ''}
 
-          ${
-            this.config?.circular_links_subtitle
-              ? html`
+          ${sectionSubtitle.trim()
+            ? html`
                 <p class="min-link-circular__subtitle">
-                  ${this.config.circular_links_subtitle}
+                  ${sectionSubtitle}
                 </p>
               `
-              : ''
-          }
+            : ''}
 
           <div class="min-link-circular__grid">
 
-            ${items.map((raw: any) => {
-              const item = this.normalizeItem(raw);
-
+            ${items.map((item: any) => {
               const image = item.circular_image;
-              const title = item.circular_title;
-              const text = item.circular_text;
+
+              const title = localizedString(
+                item.circular_title,
+                ''
+              );
+
+              const text = localizedString(
+                item.circular_text,
+                ''
+              );
+
               const url = item.circular_url || '#';
 
               return html`
@@ -180,20 +197,37 @@ export default class LinksCircularRayhana extends LitElement {
 
                   <div class="min-link-circular__image-wrapper">
                     <div class="min-link-circular__image-inner">
-                      <img src="${image}" loading="lazy" />
+                      <img
+                        src="${image}"
+                        loading="lazy"
+                        alt="${title}"
+                      />
                     </div>
                   </div>
 
-                  ${
-                    title || text
-                      ? html`
+                  ${title.trim() || text.trim()
+                    ? html`
                         <div class="min-link-circular__content">
-                          ${title ? html`<strong class="min-link-circular__title-text">${title}</strong>` : ''}
-                          ${text ? html`<span class="min-link-circular__desc">${text}</span>` : ''}
+
+                          ${title.trim()
+                            ? html`
+                                <strong class="min-link-circular__title-text">
+                                  ${title}
+                                </strong>
+                              `
+                            : ''}
+
+                          ${text.trim()
+                            ? html`
+                                <span class="min-link-circular__desc">
+                                  ${text}
+                                </span>
+                              `
+                            : ''}
+
                         </div>
                       `
-                      : ''
-                  }
+                    : ''}
 
                 </a>
               `;

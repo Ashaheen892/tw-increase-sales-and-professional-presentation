@@ -1,6 +1,6 @@
 import { css, html, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import { unsafeHTML } from 'lit/directives/unsafe-html.js'; // لإظهار iframe الخام إذا لزم
+import { localizedString } from '../../utils/localizedString';
 
 export default class OurBranches extends LitElement {
   @property({ type: Object })
@@ -9,51 +9,120 @@ export default class OurBranches extends LitElement {
   @state()
   activeTab = 0;
 
-  get branches() {
-    return this.config?.branches || [];
+  private normalizeItem(item: Record<string, any>) {
+    return Object.entries(item || {}).reduce(
+      (acc, [key, value]) => {
+        const normalizedKey = key.includes('.')
+          ? key.split('.').pop()!
+          : key;
+
+        acc[normalizedKey] = value;
+        return acc;
+      },
+      {} as Record<string, any>
+    );
   }
 
-  // دالة ذكية: إذا كان الإدخال iframe كامل، اعرضه مباشرة (مع إضافة class للتنسيق)
-  // إذا كان رابطاً، اعرضه في iframe جديد
+  get branches() {
+    return (this.config?.branches || []).map((branch: any) =>
+      this.normalizeItem(branch)
+    );
+  }
+
   renderMapContent(raw: string) {
-    if (!raw) return html`<div class="branches__error">⚠️ لا يوجد رابط خريطة</div>`;
+    const locale =
+      document.documentElement.lang?.startsWith('en')
+        ? 'en'
+        : 'ar';
 
-    // إذا كان النص يحتوي على iframe، نستخدم unsafeHTML لعرضه مباشرة
+    const messages = {
+      ar: {
+        noMap: 'لا يوجد رابط خريطة',
+        invalidMap: 'رابط الخريطة غير صالح',
+      },
+      en: {
+        noMap: 'No map URL provided',
+        invalidMap: 'Invalid map URL',
+      },
+    };
+
+    if (!raw) {
+      return html`
+        <div class="branches__error">
+          ⚠️ ${messages[locale].noMap}
+        </div>
+      `;
+    }
+
+    let src = '';
+
     if (raw.includes('<iframe')) {
-      // نضيف class="branches__iframe" إلى iframe الموجود إذا لم يكن موجوداً
-      let iframeHtml = raw;
-      if (!raw.includes('class="branches__iframe"')) {
-        iframeHtml = raw.replace(/<iframe/, '<iframe class="branches__iframe"');
+      const match = raw.match(/src=["']([^"']+)["']/);
+
+      if (match?.[1]) {
+        src = match[1];
       }
-      return html`${unsafeHTML(iframeHtml)}`;
+    } else {
+      src = raw;
     }
 
-    // إذا كان رابطاً مباشراً (يحتوي على google.com/maps)
-    if (raw.includes('google.com/maps')) {
-      return html`<iframe class="branches__iframe" src="${raw}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
+    if (!src) {
+      return html`
+        <div class="branches__error">
+          ⚠️ ${messages[locale].invalidMap}
+        </div>
+      `;
     }
 
-    // محاولة استخراج src من نص عادي (كحل أخير)
-    const srcMatch = raw.match(/src=["']([^"']+)["']/);
-    if (srcMatch && srcMatch[1]) {
-      return html`<iframe class="branches__iframe" src="${srcMatch[1]}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
-    }
+    try {
+      const hostname = new URL(src).hostname;
 
-    return html`<div class="branches__error">⚠️ رابط الخريطة غير صالح</div>`;
+      const allowedDomains = [
+        'www.google.com',
+        'google.com',
+        'maps.google.com',
+      ];
+
+      if (!allowedDomains.includes(hostname)) {
+        return html`
+          <div class="branches__error">
+            ⚠️ ${messages[locale].invalidMap}
+          </div>
+        `;
+      }
+
+      return html`
+        <iframe
+          class="branches__iframe"
+          src="${src}"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      `;
+    } catch {
+      return html`
+        <div class="branches__error">
+          ⚠️ ${messages[locale].invalidMap}
+        </div>
+      `;
+    }
   }
 
   static styles = css`
     :host {
       display: block;
     }
+
     .branches {
       margin: 40px 0;
     }
+
     .branches__container {
       max-width: 1440px;
       margin: 0 auto;
       padding: 0 16px;
     }
+
     .branches__title {
       text-align: center;
       font-size: 24px;
@@ -61,11 +130,13 @@ export default class OurBranches extends LitElement {
       margin-bottom: 10px;
       color: #000;
     }
+
     .branches__subtitle {
       text-align: center;
       color: #666;
       margin-bottom: 20px;
     }
+
     .branches__tabs {
       display: flex;
       gap: 10px;
@@ -73,6 +144,7 @@ export default class OurBranches extends LitElement {
       justify-content: center;
       margin-bottom: 20px;
     }
+
     .branches__tab {
       padding: 8px 16px;
       border: 1px solid var(--color-primary);
@@ -83,24 +155,29 @@ export default class OurBranches extends LitElement {
       font-size: 14px;
       transition: all 0.2s ease;
     }
+
     .branches__tab--active {
       background: var(--color-primary);
       color: #fff;
     }
+
     .branches__map {
       width: 100%;
       overflow: hidden;
       border-radius: 10px;
     }
+
     .branches__iframe {
       width: 100%;
       height: 400px;
       border: none;
       display: block;
     }
+
     .branches__map--gray .branches__iframe {
       filter: grayscale(1);
     }
+
     .branches__error {
       text-align: center;
       padding: 40px 20px;
@@ -109,21 +186,26 @@ export default class OurBranches extends LitElement {
       border-radius: 10px;
       font-size: 14px;
     }
-    :host-context([data-theme="dark"]) .branches__title {
+
+    :host-context([data-theme='dark']) .branches__title {
       color: #fff;
     }
-    :host-context([data-theme="dark"]) .branches__subtitle {
+
+    :host-context([data-theme='dark']) .branches__subtitle {
       color: #aaa;
     }
-    :host-context([data-theme="dark"]) .branches__tab {
+
+    :host-context([data-theme='dark']) .branches__tab {
       border-color: var(--color-primary);
       color: var(--color-primary);
     }
-    :host-context([data-theme="dark"]) .branches__tab--active {
+
+    :host-context([data-theme='dark']) .branches__tab--active {
       background: var(--color-primary);
       color: #fff;
     }
-    :host-context([data-theme="dark"]) .branches__error {
+
+    :host-context([data-theme='dark']) .branches__error {
       background: #222;
       color: #ff6b6b;
     }
@@ -132,20 +214,38 @@ export default class OurBranches extends LitElement {
   render() {
     const branches = this.branches;
 
+    const title = localizedString(this.config?.title, '');
+    const subtitle = localizedString(this.config?.subtitle, '');
+
     return html`
       <section class="branches">
         <div class="branches__container">
-          ${this.config?.title ? html`<div class="branches__title">${this.config.title}</div>` : ''}
-          ${this.config?.subtitle ? html`<div class="branches__subtitle">${this.config.subtitle}</div>` : ''}
+          ${title
+            ? html`
+                <div class="branches__title">
+                  ${title}
+                </div>
+              `
+            : ''}
+
+          ${subtitle
+            ? html`
+                <div class="branches__subtitle">
+                  ${subtitle}
+                </div>
+              `
+            : ''}
 
           <div class="branches__tabs">
             ${branches.map(
               (b: any, i: number) => html`
                 <div
-                  class="branches__tab ${this.activeTab === i ? 'branches__tab--active' : ''}"
+                  class="branches__tab ${this.activeTab === i
+                    ? 'branches__tab--active'
+                    : ''}"
                   @click=${() => (this.activeTab = i)}
                 >
-                  📍 ${b.branch_name}
+                  📍 ${localizedString(b.branch_name, '')}
                 </div>
               `
             )}
@@ -153,8 +253,13 @@ export default class OurBranches extends LitElement {
 
           ${branches.map((b: any, i: number) => {
             if (this.activeTab !== i) return '';
+
             return html`
-              <div class="branches__map ${b.map__gray ? 'branches__map--gray' : ''}">
+              <div
+                class="branches__map ${b.map__gray
+                  ? 'branches__map--gray'
+                  : ''}"
+              >
                 ${this.renderMapContent(b.map_code_url)}
               </div>
             `;
